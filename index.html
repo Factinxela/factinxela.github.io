@@ -3,14 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Factinxela simplifica la facturación, las plantillas PDF y el envío de registros VERI*FACTU a la Agencia Tributaria desde una aplicación de escritorio clara y local.">
+  <meta name="description" content="Factinxela convierte cobros identificados de Bizum o transferencia en borradores de factura, genera PDF y permite enviar facturas ordinarias y rectificativas a la Agencia Tributaria.">
   <meta name="theme-color" content="#101b33">
   <meta property="og:title" content="Factinxela · Facturación clara y sencilla">
-  <meta property="og:description" content="Clientes, plantillas PDF, facturas, importación bancaria y envío VERI*FACTU en un solo lugar.">
+  <meta property="og:description" content="De los cobros del banco a facturas ordinarias o rectificativas enviadas a la Agencia Tributaria.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/screenshots/01-panel-principal.png">
   <title>Factinxela · Facturación clara y sencilla</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="translations.js" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body>
@@ -35,13 +36,27 @@
       </button>
 
       <nav class="main-nav" id="main-nav" aria-label="Navegación principal" data-nav>
-        <a href="#funciones">Qué hace</a>
-        <a href="#flujo">Cómo funciona</a>
+        <a href="#banco">Importación bancaria</a>
         <a href="#plantillas">Plantillas PDF</a>
-        <a href="#aeat">VERI*FACTU</a>
+        <a href="#aeat">Agencia tributaria</a>
+        <a href="#rectificativas">Rectificativas</a>
         <a href="#capturas">Capturas</a>
         <a class="button button-small button-primary nav-cta" href="#descubrir">Ver todas las funciones</a>
       </nav>
+
+      <div class="language-switcher" data-language-switcher>
+        <button class="language-toggle" type="button" aria-label="Cambiar idioma" aria-expanded="false" aria-controls="language-menu" data-language-toggle>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+          <span data-current-language>ES</span>
+          <svg class="language-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg>
+        </button>
+        <div class="language-menu" id="language-menu" role="menu" aria-label="Seleccionar idioma" data-language-menu>
+          <button type="button" role="menuitemradio" aria-checked="true" data-language="es"><span class="language-icon language-icon-es">ES</span><span>Español</span></button>
+          <button type="button" role="menuitemradio" aria-checked="false" data-language="gl"><span class="language-icon language-icon-gl">GL</span><span>Galego</span></button>
+          <button type="button" role="menuitemradio" aria-checked="false" data-language="ca"><span class="language-icon language-icon-ca">CA</span><span>Català</span></button>
+          <button type="button" role="menuitemradio" aria-checked="false" data-language="en"><span class="language-icon language-icon-en">EN</span><span>English</span></button>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -52,8 +67,8 @@
       <div class="container hero-grid">
         <div class="hero-copy reveal">
           <div class="eyebrow"><span></span> Facturación local + VERI*FACTU</div>
-          <h1>Facturas claras.<br><em>Todo bajo control.</em></h1>
-          <p class="hero-lead">Factinxela reúne clientes, plantillas, cobros, facturas y envíos a la Agencia Tributaria en una aplicación de escritorio pensada para trabajar sin complicaciones.</p>
+          <h1>Facturación sencilla.<br><em>Del cobro al envío.</em></h1>
+          <p class="hero-lead">Convierte los cobros identificados de Bizum o transferencia en borradores de factura, revísalos y envía facturas ordinarias o rectificativas a la Agencia Tributaria desde una sola aplicación.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="#flujo">
               Descubrir cómo funciona
@@ -62,9 +77,9 @@
             <a class="button button-ghost" href="#capturas">Ver la aplicación</a>
           </div>
           <ul class="hero-points" aria-label="Ventajas principales">
-            <li><span aria-hidden="true">✓</span> Datos en tu equipo</li>
+            <li><span aria-hidden="true">✓</span> Cobros convertidos en borradores</li>
             <li><span aria-hidden="true">✓</span> PDF sin Word</li>
-            <li><span aria-hidden="true">✓</span> Certificados de Windows</li>
+            <li><span aria-hidden="true">✓</span> Datos en tu equipo</li>
           </ul>
         </div>
 
@@ -76,16 +91,16 @@
               <span class="window-status"><i></i> Aplicación lista</span>
             </div>
             <button class="image-button" type="button" data-lightbox="assets/screenshots/01-panel-principal.png" aria-label="Ampliar captura del panel principal">
-              <img src="assets/screenshots/01-panel-principal.png" alt="Panel principal de Factinxela con accesos a emisores, plantillas, clientes y facturas" width="1500" height="920">
+              <img src="assets/screenshots/01-panel-principal.png" alt="Panel principal de Factinxela con accesos a emisores, plantillas, clientes y facturas" width="1875" height="1055">
             </button>
           </div>
           <div class="floating-card floating-card-top" aria-hidden="true">
             <span class="float-icon float-icon-green">✓</span>
-            <span><strong>Factura aceptada</strong><small>Registro remitido a la AEAT</small></span>
+            <span><strong>Factura aceptada</strong><small>Registro remitido a la Agencia Tributaria</small></span>
           </div>
           <div class="floating-card floating-card-bottom" aria-hidden="true">
-            <span class="float-icon float-icon-blue">PDF</span>
-            <span><strong>Documento generado</strong><small>Con plantilla del cliente</small></span>
+            <span class="float-icon float-icon-blue">€</span>
+            <span><strong>Cobro identificado</strong><small>Bizum o transferencia</small></span>
           </div>
         </div>
       </div>
@@ -93,10 +108,10 @@
 
     <section class="trust-strip" aria-label="Características destacadas">
       <div class="container trust-grid">
-        <div><strong>100 %</strong><span>gestión local</span></div>
+        <div><strong>Banco</strong><span>cobros a borradores</span></div>
         <div><strong>PDF</strong><span>formularios editables</span></div>
         <div><strong>Excel</strong><span>importación y exportación</span></div>
-        <div><strong>AEAT</strong><span>envío y trazabilidad</span></div>
+        <div><strong>VERI*FACTU</strong><span>envío y trazabilidad</span></div>
       </div>
     </section>
 
@@ -138,7 +153,7 @@
             </div>
             <span class="card-kicker">Ahorra trabajo manual</span>
             <h3>Importa pagos del banco</h3>
-            <p>Lee cobros desde Excel, filtra por fechas, identifica clientes y agrupa movimientos para crear borradores con una fecha de expedición común.</p>
+            <p>Lee el Excel del banco y reconoce al cliente mediante el identificador que aparece en el concepto del Bizum o de la transferencia. Después crea y, si quieres, agrupa los borradores.</p>
           </article>
 
           <article class="feature-card feature-dark reveal">
@@ -174,6 +189,51 @@
             <h3>Una tabla a tu manera</h3>
             <p>Filtra entre dos fechas inclusivas, ordena registros y decide qué columnas ver. También puedes cambiar su orden arrastrándolas.</p>
           </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon icon-coral" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 4h12l4 4v12H4Z"/><path d="M16 4v5h5M8 13h8M8 17h5"/><path d="m7 8 2 2 3-3"/></svg>
+            </div>
+            <span class="card-kicker">Corrige conservando el historial</span>
+            <h3>Facturas rectificativas</h3>
+            <p>Parte de una factura enviada, indica el motivo y prepara una rectificativa vinculada a la original, con serie propia y envío a la Agencia Tributaria.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bank-section" id="banco">
+      <div class="container bank-grid">
+        <div class="bank-copy reveal">
+          <div class="eyebrow eyebrow-teal"><span></span> Importación desde el banco</div>
+          <h2>Del Bizum o la transferencia al borrador, sin volver a teclear</h2>
+          <p class="large-copy">Exporta los movimientos del banco a Excel y deja que Factinxela convierta los cobros identificados en borradores de factura. Puedes filtrar el periodo, agrupar pagos y elegir una fecha de expedición común.</p>
+          <div class="bank-callout">
+            <strong>La identificación del cliente es imprescindible</strong>
+            <p>El texto del movimiento bancario debe contener el alias guardado en el campo <em>Identificador de pago</em> del cliente. Puede ser su nombre, sus iniciales, un teléfono u otra referencia que aparezca tanto en el Bizum como en la transferencia.</p>
+          </div>
+          <ol class="bank-steps">
+            <li><span>1</span><div><strong>Asigna un alias</strong><small>Por ejemplo: CLINICA-HORIZONTE, MARTA-R o 600123456.</small></div></li>
+            <li><span>2</span><div><strong>Exporta el Excel del banco</strong><small>Factinxela procesa la primera hoja y las columnas que hayas configurado.</small></div></li>
+            <li><span>3</span><div><strong>Revisa los borradores</strong><small>Los cobros reconocidos heredan el cliente, su plantilla y los impuestos correspondientes.</small></div></li>
+          </ol>
+          <div class="movement-examples" aria-label="Ejemplos de movimientos bancarios identificables">
+            <span><small>BIZUM</small> Sesión julio · MARTA-R</span>
+            <span><small>TRANSFERENCIA</small> Servicios · CLINICA-HORIZONTE</span>
+          </div>
+        </div>
+
+        <div class="bank-visual reveal reveal-delay">
+          <div class="bank-badge"><span>✓</span><div><strong>Cliente localizado</strong><small>por su identificador de pago</small></div></div>
+          <div class="app-window bank-window">
+            <div class="window-bar">
+              <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="window-title">Importar movimientos bancarios</span>
+            </div>
+            <button class="image-button" type="button" data-lightbox="assets/screenshots/08-importacion-banco.png" aria-label="Ampliar captura de la importación de movimientos bancarios">
+              <img src="assets/screenshots/08-importacion-banco.png" alt="Opciones para importar cobros de Bizum y transferencias desde un Excel del banco" width="1075" height="900" loading="lazy">
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -193,13 +253,13 @@
             <span class="step-number">01</span>
             <div class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L8 18l-4 1 1-4Z"/></svg></div>
             <h3>Configura</h3>
-            <p>Añade emisores, clientes y plantillas. Define la numeración y los valores fiscales predeterminados.</p>
+            <p>Añade emisores, clientes y plantillas. Define series ordinarias y rectificativas, y guarda el identificador bancario de cada cliente.</p>
           </li>
           <li class="workflow-step reveal">
             <span class="step-number">02</span>
             <div class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg></div>
             <h3>Crea o importa</h3>
-            <p>Introduce una factura manualmente o transforma los cobros del banco en borradores listos para revisar.</p>
+            <p>Introduce una factura manualmente o transforma Bizum y transferencias identificados en borradores listos para revisar.</p>
           </li>
           <li class="workflow-step reveal">
             <span class="step-number">03</span>
@@ -211,7 +271,7 @@
             <span class="step-number">04</span>
             <div class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4Z"/></svg></div>
             <h3>Envía y archiva</h3>
-            <p>Elige tu certificado, remite el lote a la AEAT y conserva el estado, el CSV y los XML del intercambio.</p>
+            <p>Elige tu certificado, remite el lote a la Agencia Tributaria y conserva el estado, el CSV y los XML del intercambio.</p>
           </li>
         </ol>
       </div>
@@ -241,7 +301,7 @@
               <span class="window-title">Configuración de campos</span>
             </div>
             <button class="image-button" type="button" data-lightbox="assets/screenshots/04-configuracion-plantilla.png" aria-label="Ampliar captura de la configuración de una plantilla PDF">
-              <img src="assets/screenshots/04-configuracion-plantilla.png" alt="Configuración visual de campos de una plantilla PDF en Factinxela" width="1280" height="760" loading="lazy">
+              <img src="assets/screenshots/04-configuracion-plantilla.png" alt="Configuración visual de campos de una plantilla PDF en Factinxela" width="1600" height="950" loading="lazy">
             </button>
           </div>
         </div>
@@ -253,7 +313,7 @@
       <div class="container">
         <div class="section-heading split-heading light-heading reveal">
           <div>
-            <div class="eyebrow eyebrow-light"><span></span> Envío VERI*FACTU</div>
+            <div class="eyebrow eyebrow-light"><span></span> Envío a la Agencia Tributaria · VERI*FACTU</div>
             <h2>Del borrador al registro, con trazabilidad</h2>
           </div>
           <p>Antes de remitir nada, Factinxela realiza las comprobaciones que evitan errores de numeración, fechas o configuración.</p>
@@ -269,7 +329,7 @@
             <div class="aeat-flow-line"></div>
             <div class="aeat-flow-item"><span>4</span><div><strong>Enviar con certificado</strong><small>Selección desde el almacén personal de Windows</small></div></div>
             <div class="aeat-flow-line"></div>
-            <div class="aeat-flow-item"><span>5</span><div><strong>Guardar resultado</strong><small>Lote, CSV, estado, errores y log XML legible</small></div></div>
+            <div class="aeat-flow-item"><span>5</span><div><strong>Guardar resultado</strong><small>Lote, CSV, estado, errores e historial XML legible</small></div></div>
           </div>
 
           <div class="aeat-shot reveal reveal-delay">
@@ -280,7 +340,7 @@
                 <span class="window-status"><i></i> Conectado</span>
               </div>
               <button class="image-button" type="button" data-lightbox="assets/screenshots/02-facturas.png" aria-label="Ampliar captura de la gestión de facturas">
-                <img src="assets/screenshots/02-facturas.png" alt="Tabla de facturas con estados, filtros y acción de envío a la Agencia Tributaria" width="1500" height="920" loading="lazy">
+                <img src="assets/screenshots/02-facturas.png" alt="Tabla de facturas con estados, filtros y acción de envío a la Agencia Tributaria" width="1875" height="1055" loading="lazy">
               </button>
             </div>
             <div class="status-legend" aria-label="Estados posibles de una factura">
@@ -290,6 +350,54 @@
               <span><i class="dot rejected"></i>Incorrecta</span>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section rectification-section" id="rectificativas">
+      <div class="container">
+        <div class="section-heading split-heading reveal">
+          <div>
+            <div class="eyebrow eyebrow-teal"><span></span> Facturas rectificativas</div>
+            <h2>Corrige una factura sin perder lo que ocurrió antes</h2>
+          </div>
+          <p>Desde el historial de una factura enviada puedes iniciar la rectificación, indicar el motivo, revisar la factura original y enviar el nuevo registro a la Agencia Tributaria.</p>
+        </div>
+
+        <div class="rectification-grid">
+          <div class="rectification-visual reveal">
+            <div class="app-window">
+              <div class="window-bar">
+                <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="window-title">Historial agencia tributaria</span>
+              </div>
+              <button class="image-button" type="button" data-lightbox="assets/screenshots/09-historial-agencia-tributaria.png" aria-label="Ampliar captura del historial de una factura">
+                <img src="assets/screenshots/09-historial-agencia-tributaria.png" alt="Historial de registros de una factura con la acción Emitir factura rectificativa" width="1875" height="1055" loading="lazy">
+              </button>
+            </div>
+          </div>
+
+          <div class="rectification-copy reveal reveal-delay">
+            <span class="card-kicker">Un registro nuevo y relacionado</span>
+            <h3>La factura original permanece intacta</h3>
+            <p>Factinxela crea un borrador rectificativo vinculado a la factura original. Así puedes consultar qué se envió antes y qué se está corrigiendo ahora.</p>
+            <ul class="check-list compact-check-list">
+              <li><span>✓</span><div><strong>Motivo guiado</strong><small>Eliges la causa y la aplicación determina el tipo de factura rectificativa.</small></div></li>
+              <li><span>✓</span><div><strong>Serie independiente</strong><small>Las rectificativas usan su propia serie y mantienen una numeración consecutiva separada.</small></div></li>
+              <li><span>✓</span><div><strong>Comparación con la original</strong><small>El editor muestra a la derecha los datos fiscales que se enviaron anteriormente.</small></div></li>
+              <li><span>✓</span><div><strong>Envío a la Agencia Tributaria</strong><small>La rectificativa se valida, numera, encadena y remite como un nuevo registro.</small></div></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="rectification-editor reveal">
+          <div class="rectification-editor-label">
+            <strong>Edición de la rectificativa</strong>
+            <span>Datos nuevos a la izquierda · factura original a la derecha</span>
+          </div>
+          <button class="image-button" type="button" data-lightbox="assets/screenshots/10-factura-rectificativa.png" aria-label="Ampliar captura del editor de una factura rectificativa">
+            <img src="assets/screenshots/10-factura-rectificativa.png" alt="Editor dividido de una factura rectificativa con los datos de la factura original" width="1750" height="1055" loading="lazy">
+          </button>
         </div>
       </div>
     </section>
@@ -304,8 +412,24 @@
 
         <div class="gallery-grid">
           <figure class="gallery-item gallery-large reveal">
+            <button type="button" data-lightbox="assets/screenshots/08-importacion-banco.png" aria-label="Ampliar captura de la importación bancaria">
+              <img src="assets/screenshots/08-importacion-banco.png" alt="Importación de movimientos de Bizum y transferencias desde el Excel del banco" width="1075" height="900" loading="lazy">
+              <span class="zoom-icon" aria-hidden="true">↗</span>
+            </button>
+            <figcaption><strong>Importación desde el banco</strong><span>Filtra, agrupa y convierte cobros identificados en borradores.</span></figcaption>
+          </figure>
+
+          <figure class="gallery-item reveal">
+            <button type="button" data-lightbox="assets/screenshots/09-historial-agencia-tributaria.png" aria-label="Ampliar captura del historial de una factura">
+              <img src="assets/screenshots/09-historial-agencia-tributaria.png" alt="Historial de envíos con acciones de subsanar, anular o emitir una factura rectificativa" width="1875" height="1055" loading="lazy">
+              <span class="zoom-icon" aria-hidden="true">↗</span>
+            </button>
+            <figcaption><strong>Historial fiscal</strong><span>Cada envío permanece disponible y las acciones dependen de su estado.</span></figcaption>
+          </figure>
+
+          <figure class="gallery-item gallery-large reveal">
             <button type="button" data-lightbox="assets/screenshots/03-plantillas.png" aria-label="Ampliar captura de plantillas de facturas">
-              <img src="assets/screenshots/03-plantillas.png" alt="Listado de plantillas de facturas PDF" width="1500" height="920" loading="lazy">
+              <img src="assets/screenshots/03-plantillas.png" alt="Listado de plantillas de facturas PDF" width="1875" height="1055" loading="lazy">
               <span class="zoom-icon" aria-hidden="true">↗</span>
             </button>
             <figcaption><strong>Plantillas de facturas</strong><span>Un diseño distinto para cada tipo de cliente.</span></figcaption>
@@ -313,7 +437,7 @@
 
           <figure class="gallery-item reveal">
             <button type="button" data-lightbox="assets/screenshots/05-filtro-fechas.png" aria-label="Ampliar captura del filtro de fechas">
-              <img src="assets/screenshots/05-filtro-fechas.png" alt="Filtro inclusivo de facturas desde una fecha hasta otra" width="540" height="370" loading="lazy">
+              <img src="assets/screenshots/05-filtro-fechas.png" alt="Filtro inclusivo de facturas desde una fecha hasta otra" width="675" height="463" loading="lazy">
               <span class="zoom-icon" aria-hidden="true">↗</span>
             </button>
             <figcaption><strong>Filtros inclusivos</strong><span>Encuentra facturas entre dos fechas.</span></figcaption>
@@ -321,18 +445,26 @@
 
           <figure class="gallery-item reveal">
             <button type="button" data-lightbox="assets/screenshots/06-emisor.png" aria-label="Ampliar captura de los datos de un emisor">
-              <img src="assets/screenshots/06-emisor.png" alt="Formulario de emisor con serie y número inicial de factura" width="920" height="760" loading="lazy">
+              <img src="assets/screenshots/06-emisor.png" alt="Formulario de emisor con series ordinaria y rectificativa y sus separadores" width="1150" height="950" loading="lazy">
               <span class="zoom-icon" aria-hidden="true">↗</span>
             </button>
-            <figcaption><strong>Emisores completos</strong><span>Datos fiscales, serie y numeración inicial.</span></figcaption>
+            <figcaption><strong>Dos series independientes</strong><span>Serie ordinaria y rectificativa, cada una con su separador.</span></figcaption>
           </figure>
 
           <figure class="gallery-item gallery-wide reveal">
-            <button type="button" data-lightbox="assets/screenshots/07-ayuda-serie.png" aria-label="Ampliar captura de la ayuda sobre series de factura">
-              <img src="assets/screenshots/07-ayuda-serie.png" alt="Ayuda integrada que explica qué es una serie de facturación" width="620" height="600" loading="lazy">
+            <button type="button" data-lightbox="assets/screenshots/07-ayuda-serie.png" aria-label="Ampliar la ayuda sobre facturas rectificativas">
+              <img src="assets/screenshots/07-ayuda-serie.png" alt="Ayuda integrada que explica qué es una factura rectificativa y por qué utiliza otra serie" width="775" height="750" loading="lazy">
               <span class="zoom-icon" aria-hidden="true">↗</span>
             </button>
-            <figcaption><strong>Ayuda donde hace falta</strong><span>Los conceptos administrativos se explican con ejemplos sencillos.</span></figcaption>
+            <figcaption><strong>Ayuda donde hace falta</strong><span>Qué es una rectificativa y por qué utiliza una serie independiente.</span></figcaption>
+          </figure>
+
+          <figure class="gallery-item gallery-large reveal">
+            <button type="button" data-lightbox="assets/screenshots/10-factura-rectificativa.png" aria-label="Ampliar captura del editor de una factura rectificativa">
+              <img src="assets/screenshots/10-factura-rectificativa.png" alt="Edición de una factura rectificativa junto a los datos de su factura original" width="1750" height="1055" loading="lazy">
+              <span class="zoom-icon" aria-hidden="true">↗</span>
+            </button>
+            <figcaption><strong>Rectificación con contexto</strong><span>Edita el nuevo borrador consultando a la vez lo enviado en la factura original.</span></figcaption>
           </figure>
         </div>
       </div>
@@ -354,8 +486,8 @@
               <h3>Configuración y datos maestros</h3>
               <ul>
                 <li>Uno o varios emisores, con validación del emisor autorizado</li>
-                <li>Serie opcional y número inicial obligatorio</li>
-                <li>Clientes con NIF/CIF, dirección, contacto e identificador de pago</li>
+                <li>Series ordinaria y rectificativa con separadores recomendados</li>
+                <li>Clientes con NIF/CIF, dirección, contacto e identificador de pago bancario</li>
                 <li>Asignación de una plantilla de factura a cada cliente</li>
                 <li>Importación y exportación de datos mediante Excel</li>
               </ul>
@@ -367,7 +499,8 @@
             <div>
               <h3>Creación y gestión de facturas</h3>
               <ul>
-                <li>Alta manual o importación desde pagos del banco</li>
+                <li>Alta manual o importación desde cobros de Bizum y transferencias</li>
+                <li>Identificación del cliente mediante el alias presente en el movimiento bancario</li>
                 <li>Agrupación de cobros y fecha de expedición común</li>
                 <li>Cálculo de base, IVA, IRPF y total según plantilla</li>
                 <li>Estados visibles: Borrador, Aceptada, Aceptada con errores e Incorrecta</li>
@@ -395,7 +528,7 @@
           <article class="detail-group reveal">
             <div class="detail-number">04</div>
             <div>
-              <h3>Envío y seguimiento AEAT</h3>
+              <h3>Envío y seguimiento en la Agencia Tributaria</h3>
               <ul>
                 <li>Límite configurable de facturas por lote</li>
                 <li>Orden cronológico y numeración correlativa automática</li>
@@ -403,6 +536,8 @@
                 <li>XML SOAP y envío con un certificado instalado en Windows</li>
                 <li>Número de lote, CSV, estado y errores por factura</li>
                 <li>Logs independientes con petición y respuesta XML formateadas</li>
+                <li>Historial inmutable de altas, subsanaciones, anulaciones y reintentos</li>
+                <li>Facturas rectificativas vinculadas a la original y con serie independiente</li>
               </ul>
             </div>
           </article>

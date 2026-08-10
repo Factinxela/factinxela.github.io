@@ -7,7 +7,9 @@ import sys
 import tempfile
 from pathlib import Path
 
-os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
+os.environ.setdefault(
+    "QT_QPA_PLATFORM", "windows" if sys.platform == "win32" else "offscreen"
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
@@ -17,7 +19,11 @@ from PySide6.QtCore import QDate  # noqa: E402
 from PySide6.QtWidgets import QApplication, QToolButton  # noqa: E402
 
 from src.database import Database  # noqa: E402
-from src.dialogs import RecordDialog, TemplateFieldsDialog  # noqa: E402
+from src.dialogs import (  # noqa: E402
+    InvoicePaymentsImportDialog,
+    RecordDialog,
+    TemplateFieldsDialog,
+)
 from src.main_window import MainWindow  # noqa: E402
 from src.table_header import DateRangeDialog  # noqa: E402
 from src.theme import APP_STYLE, FactinxelaStyle  # noqa: E402
@@ -44,7 +50,7 @@ def _configure_template(database: Database, template_id: int) -> None:
             "{clientes.direccion_poblacion}"
         ),
         "fecha": "{facturas.fecha_factura}",
-        "numero": "{facturas.serie_factura}-{facturas.num_factura}",
+        "numero": "{facturas.serie_factura}{facturas.num_factura}",
         "concepto": "{facturas.concepto}",
         "base": "{facturas.base_imponible}",
         "iva": "{facturas.iva_tipo_impositivo}",
@@ -61,7 +67,9 @@ def _configure_template(database: Database, template_id: int) -> None:
     )
 
 
-def _seed_database(database: Database, directory: Path) -> tuple[int, int]:
+def _seed_database(
+    database: Database, directory: Path
+) -> tuple[int, int, int, int]:
     database.initialize()
     issuer_id = database.insert(
         "emisores",
@@ -72,6 +80,9 @@ def _seed_database(database: Database, directory: Path) -> tuple[int, int]:
             "telefono": "600 123 456",
             "email": "ana@ejemplo.test",
             "serie_factura": "F2026",
+            "separador_serie_factura": "-",
+            "serie_factura_rectificativa": "R2026",
+            "separador_serie_factura_rectificativa": "-",
             "num_factura_init": 101,
             "direccion_via": "Calle del Mercado, 12",
             "direccion_codigo_postal": "28004",
@@ -87,6 +98,9 @@ def _seed_database(database: Database, directory: Path) -> tuple[int, int]:
             "razon_social": "Bruno López Ruiz",
             "cif": "87654321X",
             "serie_factura": "B2026",
+            "separador_serie_factura": "-",
+            "serie_factura_rectificativa": "RB2026",
+            "separador_serie_factura_rectificativa": "-",
             "num_factura_init": 45,
             "direccion_poblacion": "Valencia",
             "direccion_pais": "España",
@@ -216,7 +230,7 @@ def _seed_database(database: Database, directory: Path) -> tuple[int, int]:
             "estado": "Aceptada",
             "emisor_id": issuer_id,
             "fecha_factura": "2026-07-24",
-            "serie_factura": "F2026",
+            "serie_factura": "F2026-",
             "num_factura": 101,
             "cliente_id": client_ids[0],
             "concepto": "Servicios profesionales de julio",
@@ -233,7 +247,7 @@ def _seed_database(database: Database, directory: Path) -> tuple[int, int]:
             "estado": "Aceptada",
             "emisor_id": issuer_id,
             "fecha_factura": "2026-07-25",
-            "serie_factura": "F2026",
+            "serie_factura": "F2026-",
             "num_factura": 102,
             "cliente_id": client_ids[1],
             "concepto": "Diseño y consultoría",
@@ -250,7 +264,7 @@ def _seed_database(database: Database, directory: Path) -> tuple[int, int]:
             "estado": "Aceptada con errores",
             "emisor_id": issuer_id,
             "fecha_factura": "2026-07-26",
-            "serie_factura": "F2026",
+            "serie_factura": "F2026-",
             "num_factura": 103,
             "cliente_id": client_ids[2],
             "concepto": "Sesiones y seguimiento",
@@ -279,7 +293,7 @@ def _seed_database(database: Database, directory: Path) -> tuple[int, int]:
             "estado": "Incorrecta",
             "emisor_id": second_issuer_id,
             "fecha_factura": "2026-07-28",
-            "serie_factura": "B2026",
+            "serie_factura": "B2026-",
             "num_factura": 45,
             "cliente_id": client_ids[4],
             "concepto": "Asistencia técnica",
@@ -293,9 +307,21 @@ def _seed_database(database: Database, directory: Path) -> tuple[int, int]:
             "errores_aeat": "4102 - El registro contiene datos que deben revisarse",
         },
     ]
-    for invoice in invoices:
-        database.insert("facturas", invoice)
-    return issuer_id, professional_template
+    invoice_ids = [database.insert("facturas", invoice) for invoice in invoices]
+    rectification_id = database.create_rectification_draft(
+        invoice_ids[0], "Importe incorrecto"
+    )
+    database.update(
+        "facturas",
+        rectification_id,
+        {
+            "fecha_factura": "2026-07-29",
+            "concepto": "Rectificación de servicios profesionales de julio",
+            "base_imponible": 0,
+            "total_factura": 0,
+        },
+    )
+    return issuer_id, professional_template, invoice_ids[0], rectification_id
 
 
 def main() -> int:
@@ -308,7 +334,9 @@ def main() -> int:
     with tempfile.TemporaryDirectory(prefix="factinxela-web-") as temporary:
         directory = Path(temporary)
         database = Database(directory / "factinxela_demo.db")
-        issuer_id, template_id = _seed_database(database, directory)
+        issuer_id, template_id, invoice_id, rectification_id = _seed_database(
+            database, directory
+        )
 
         window = MainWindow(database)
         window.resize(1500, 920)
@@ -336,15 +364,38 @@ def main() -> int:
         _save_widget(date_dialog, "05-filtro-fechas.png", application)
         date_dialog.close()
 
+        payment_dialog = InvoicePaymentsImportDialog(database)
+        payment_dialog._path = Path(
+            "C:/Factinxela/Banco/movimientos_bizum_transferencias_julio.xlsx"
+        )
+        payment_dialog.path_edit.setText(str(payment_dialog._path))
+        payment_dialog.prefix_edit.setText("Servicios")
+        payment_dialog.start_checkbox.setChecked(True)
+        payment_dialog.start_date_edit.setDate(QDate(2026, 7, 1))
+        payment_dialog.end_checkbox.setChecked(True)
+        payment_dialog.end_date_edit.setDate(QDate(2026, 7, 31))
+        payment_dialog.group_checkbox.setChecked(True)
+        payment_dialog.invoice_date_edit.setDate(QDate(2026, 7, 31))
+        payment_dialog.import_button.setEnabled(True)
+        payment_dialog.resize(860, 720)
+        _save_widget(
+            payment_dialog,
+            "08-importacion-banco.png",
+            application,
+        )
+        payment_dialog.close()
+
         issuer = database.fetch_one("emisores", issuer_id)
         issuer_dialog = RecordDialog(database, "emisores", issuer)
         issuer_dialog.resize(920, 760)
         help_button = issuer_dialog.findChild(
-            QToolButton, "issuerSeriesHelpButton"
+            QToolButton, "rectificationSeriesHelpButton"
         )
         _save_widget(issuer_dialog, "06-emisor.png", application)
         if help_button is not None:
-            issuer_dialog._show_series_help(help_button)
+            issuer_dialog._show_series_help(
+                help_button, rectification=True
+            )
             application.processEvents()
             if issuer_dialog._series_help_popup is not None:
                 _save_widget(
@@ -354,6 +405,26 @@ def main() -> int:
                 )
                 issuer_dialog._series_help_popup.close()
         issuer_dialog.close()
+
+        window.show_invoice_history(invoice_id)
+        application.processEvents()
+        _save_widget(
+            window,
+            "09-historial-agencia-tributaria.png",
+            application,
+        )
+
+        rectification = database.fetch_one("facturas", rectification_id)
+        rectification_dialog = RecordDialog(
+            database, "facturas", rectification
+        )
+        rectification_dialog.resize(1400, 860)
+        _save_widget(
+            rectification_dialog,
+            "10-factura-rectificativa.png",
+            application,
+        )
+        rectification_dialog.close()
         window.close()
 
     return 0
