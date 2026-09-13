@@ -12,8 +12,9 @@ os.environ.setdefault(
 )
 
 ROOT = Path(__file__).resolve().parents[1]
-if str(ROOT) not in sys.path:
-    sys.path.insert(0, str(ROOT))
+APP_ROOT = ROOT / "Factinxela"
+if str(APP_ROOT) not in sys.path:
+    sys.path.insert(0, str(APP_ROOT))
 
 from PySide6.QtCore import QDate  # noqa: E402
 from PySide6.QtWidgets import QApplication, QToolButton  # noqa: E402
@@ -43,19 +44,19 @@ def _save_widget(widget, filename: str, application: QApplication) -> None:
 
 def _configure_template(database: Database, template_id: int) -> None:
     associations = {
-        "cliente": "{clientes.razon_social}",
-        "nif": "{clientes.cif}",
-        "direccion": (
-            "{clientes.direccion_via}, {clientes.direccion_codigo_postal} "
-            "{clientes.direccion_poblacion}"
+        "facturas.nombre_razon_destinatario": (
+            "{facturas.nombre_razon_destinatario}"
         ),
-        "fecha": "{facturas.fecha_factura}",
-        "numero": "{facturas.serie_factura}{facturas.num_factura}",
-        "concepto": "{facturas.concepto}",
-        "base": "{facturas.base_imponible}",
-        "iva": "{facturas.iva_tipo_impositivo}",
-        "total": "{facturas.total_factura}",
-        "qr": "{facturas.url_qr}",
+        "facturas.nif_destinatario": "{facturas.nif_destinatario}",
+        "clientes.direccion_completa": "{clientes.direccion_completa}",
+        "facturas.fecha_factura": "{facturas.fecha_factura}",
+        "facturas.num_factura": "{facturas.num_factura}",
+        "facturas.concepto": "{facturas.concepto}",
+        "facturas.base_imponible": "{facturas.base_imponible}",
+        "facturas.irpf_importe": "{facturas.irpf_importe}",
+        "facturas.iva_importe": "{facturas.iva_importe}",
+        "facturas.total_factura": "{facturas.total_factura}",
+        "facturas.url_qr": "{facturas.url_qr}",
     }
     fields = database.template_fields(template_id)
     database.update_template_fields(
@@ -79,11 +80,8 @@ def _seed_database(
             "cif": "12345678Z",
             "telefono": "600 123 456",
             "email": "ana@ejemplo.test",
-            "serie_factura": "F2026",
-            "separador_serie_factura": "-",
-            "serie_factura_rectificativa": "R2026",
-            "separador_serie_factura_rectificativa": "-",
-            "num_factura_init": 101,
+            "codigo_activacion": "DEMO-FACTINXELA-2026",
+            "signature": "demo-signature",
             "direccion_via": "Calle del Mercado, 12",
             "direccion_codigo_postal": "28004",
             "direccion_poblacion": "Madrid",
@@ -97,40 +95,74 @@ def _seed_database(
             "tipo_persona": "Persona física",
             "razon_social": "Bruno López Ruiz",
             "cif": "87654321X",
-            "serie_factura": "B2026",
-            "separador_serie_factura": "-",
-            "serie_factura_rectificativa": "RB2026",
-            "separador_serie_factura_rectificativa": "-",
-            "num_factura_init": 45,
+            "codigo_activacion": "DEMO-FACTINXELA-2026-B",
+            "signature": "demo-signature-b",
             "direccion_poblacion": "Valencia",
             "direccion_pais": "España",
         },
     )
 
     field_names = (
-        "cliente",
-        "nif",
-        "direccion",
-        "fecha",
-        "numero",
-        "concepto",
-        "base",
-        "iva",
-        "total",
-        "qr",
+        "facturas.nombre_razon_destinatario",
+        "facturas.nif_destinatario",
+        "clientes.direccion_completa",
+        "facturas.fecha_factura",
+        "facturas.num_factura",
+        "facturas.concepto",
+        "facturas.base_imponible",
+        "facturas.irpf_importe",
+        "facturas.iva_importe",
+        "facturas.total_factura",
+        "facturas.url_qr",
     )
     template_directory = Path("C:/Factinxela/Plantillas")
+    ordinary_series_id = database.insert(
+        "series_facturas",
+        {
+            "serie_factura": "F2026",
+            "separador_serie": "-",
+            "numero_inicial": 101,
+        },
+    )
+    rectification_series_id = database.insert(
+        "series_facturas",
+        {
+            "serie_factura": "R2026",
+            "separador_serie": "-",
+            "numero_inicial": 1,
+        },
+    )
+    second_ordinary_series_id = database.insert(
+        "series_facturas",
+        {
+            "serie_factura": "B2026",
+            "separador_serie": "-",
+            "numero_inicial": 45,
+        },
+    )
+    second_rectification_series_id = database.insert(
+        "series_facturas",
+        {
+            "serie_factura": "RB2026",
+            "separador_serie": "-",
+            "numero_inicial": 1,
+        },
+    )
     professional_template = database.create_template(
         template_directory / "Factura profesional.pdf",
         field_names,
         irpf_rate=15,
         iva_rate=21,
+        ordinary_series_id=ordinary_series_id,
+        rectification_series_id=rectification_series_id,
     )
     services_template = database.create_template(
         template_directory / "Factura servicios.pdf",
         field_names,
         irpf_rate=0,
         iva_rate=21,
+        ordinary_series_id=second_ordinary_series_id,
+        rectification_series_id=second_rectification_series_id,
     )
     _configure_template(database, professional_template)
     _configure_template(database, services_template)
@@ -193,7 +225,6 @@ def _seed_database(
                     "cif": cif,
                     "email": f"hola@{identifier.lower()}.test",
                     "plantilla_id": template_id,
-                    "identificador": identifier,
                     "direccion_via": address,
                     "direccion_codigo_postal": postal_code,
                     "direccion_poblacion": city,
@@ -230,13 +261,10 @@ def _seed_database(
             "estado": "Aceptada",
             "emisor_id": issuer_id,
             "fecha_factura": "2026-07-24",
-            "serie_factura": "F2026-",
             "num_factura": 101,
             "cliente_id": client_ids[0],
             "concepto": "Servicios profesionales de julio",
             "base_imponible": 850,
-            "irpf_tipo_retencion": 15,
-            "iva_tipo_impositivo": 21,
             "total_factura": 901,
             "url_qr": f"{common_url}101&fecha=24-07-2026&importe=1028.50",
             "huella": "A" * 64,
@@ -247,13 +275,10 @@ def _seed_database(
             "estado": "Aceptada",
             "emisor_id": issuer_id,
             "fecha_factura": "2026-07-25",
-            "serie_factura": "F2026-",
             "num_factura": 102,
             "cliente_id": client_ids[1],
             "concepto": "Diseño y consultoría",
             "base_imponible": 620,
-            "irpf_tipo_retencion": 0,
-            "iva_tipo_impositivo": 21,
             "total_factura": 750.2,
             "url_qr": f"{common_url}102&fecha=25-07-2026&importe=750.20",
             "huella": "B" * 64,
@@ -264,13 +289,10 @@ def _seed_database(
             "estado": "Aceptada con errores",
             "emisor_id": issuer_id,
             "fecha_factura": "2026-07-26",
-            "serie_factura": "F2026-",
             "num_factura": 103,
             "cliente_id": client_ids[2],
             "concepto": "Sesiones y seguimiento",
             "base_imponible": 480,
-            "irpf_tipo_retencion": 15,
-            "iva_tipo_impositivo": 21,
             "total_factura": 508.8,
             "url_qr": f"{common_url}103&fecha=26-07-2026&importe=580.80",
             "huella": "C" * 64,
@@ -285,21 +307,16 @@ def _seed_database(
             "cliente_id": client_ids[3],
             "concepto": "Mantenimiento mensual",
             "base_imponible": 300,
-            "irpf_tipo_retencion": 0,
-            "iva_tipo_impositivo": 21,
             "total_factura": 363,
         },
         {
             "estado": "Incorrecta",
             "emisor_id": second_issuer_id,
             "fecha_factura": "2026-07-28",
-            "serie_factura": "B2026-",
             "num_factura": 45,
             "cliente_id": client_ids[4],
             "concepto": "Asistencia técnica",
             "base_imponible": 210,
-            "irpf_tipo_retencion": 0,
-            "iva_tipo_impositivo": 21,
             "total_factura": 254.1,
             "huella": "D" * 64,
             "fecha_hora_huso_gen_registro": "2026-07-28T11:18:12+02:00",
@@ -321,7 +338,12 @@ def _seed_database(
             "total_factura": 0,
         },
     )
-    return issuer_id, professional_template, invoice_ids[0], rectification_id
+    return (
+        issuer_id,
+        professional_template,
+        invoice_ids[0],
+        rectification_series_id,
+    )
 
 
 def main() -> int:
@@ -334,9 +356,12 @@ def main() -> int:
     with tempfile.TemporaryDirectory(prefix="factinxela-web-") as temporary:
         directory = Path(temporary)
         database = Database(directory / "factinxela_demo.db")
-        issuer_id, template_id, invoice_id, rectification_id = _seed_database(
-            database, directory
-        )
+        (
+            issuer_id,
+            template_id,
+            invoice_id,
+            rectification_series_id,
+        ) = _seed_database(database, directory)
 
         window = MainWindow(database)
         window.resize(1500, 920)
@@ -374,8 +399,6 @@ def main() -> int:
         payment_dialog.start_date_edit.setDate(QDate(2026, 7, 1))
         payment_dialog.end_checkbox.setChecked(True)
         payment_dialog.end_date_edit.setDate(QDate(2026, 7, 31))
-        payment_dialog.group_checkbox.setChecked(True)
-        payment_dialog.invoice_date_edit.setDate(QDate(2026, 7, 31))
         payment_dialog.import_button.setEnabled(True)
         payment_dialog.resize(860, 720)
         _save_widget(
@@ -388,23 +411,32 @@ def main() -> int:
         issuer = database.fetch_one("emisores", issuer_id)
         issuer_dialog = RecordDialog(database, "emisores", issuer)
         issuer_dialog.resize(920, 760)
-        help_button = issuer_dialog.findChild(
-            QToolButton, "rectificationSeriesHelpButton"
-        )
         _save_widget(issuer_dialog, "06-emisor.png", application)
+        issuer_dialog.close()
+
+        series = database.fetch_one(
+            "series_facturas", rectification_series_id
+        )
+        series_dialog = RecordDialog(database, "series_facturas", series)
+        series_dialog.resize(900, 560)
+        series_dialog.show()
+        application.processEvents()
+        help_button = series_dialog.findChild(
+            QToolButton, "issuerSeriesHelpButton"
+        )
         if help_button is not None:
-            issuer_dialog._show_series_help(
-                help_button, rectification=True
+            series_dialog._show_series_help(
+                help_button, rectification=False
             )
             application.processEvents()
-            if issuer_dialog._series_help_popup is not None:
+            if series_dialog._series_help_popup is not None:
                 _save_widget(
-                    issuer_dialog._series_help_popup,
+                    series_dialog._series_help_popup,
                     "07-ayuda-serie.png",
                     application,
                 )
-                issuer_dialog._series_help_popup.close()
-        issuer_dialog.close()
+                series_dialog._series_help_popup.close()
+        series_dialog.close()
 
         window.show_invoice_history(invoice_id)
         application.processEvents()
@@ -414,17 +446,6 @@ def main() -> int:
             application,
         )
 
-        rectification = database.fetch_one("facturas", rectification_id)
-        rectification_dialog = RecordDialog(
-            database, "facturas", rectification
-        )
-        rectification_dialog.resize(1400, 860)
-        _save_widget(
-            rectification_dialog,
-            "10-factura-rectificativa.png",
-            application,
-        )
-        rectification_dialog.close()
         window.close()
 
     return 0

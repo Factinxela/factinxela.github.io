@@ -91,7 +91,7 @@
               <span class="window-status"><i></i> Aplicación lista</span>
             </div>
             <button class="image-button" type="button" data-lightbox="assets/screenshots/01-panel-principal.png" aria-label="Ampliar captura del panel principal">
-              <img src="assets/screenshots/01-panel-principal.png" alt="Panel principal de Factinxela con accesos a emisores, plantillas, clientes y facturas" width="1875" height="1055">
+              <img src="assets/screenshots/01-panel-principal.png" alt="Panel principal de Factinxela con accesos a emisores, plantillas, clientes y facturas" width="1875" height="1150">
             </button>
           </div>
           <div class="floating-card floating-card-top" aria-hidden="true">
@@ -131,9 +131,9 @@
             <div>
               <span class="card-kicker">Tu base de trabajo</span>
               <h3>Emisores y clientes bien organizados</h3>
-              <p>Configura quién emite las facturas, su serie y numeración inicial. Guarda los datos fiscales y postales de cada cliente y asígnale su plantilla PDF.</p>
+              <p>Configura quién emite las facturas y guarda sus datos fiscales y postales. Define las series y la numeración en cada plantilla PDF y asígnala a cada cliente.</p>
               <ul class="inline-list">
-                <li>Varios emisores</li><li>Series opcionales</li><li>Plantilla por cliente</li>
+                <li>Varios emisores</li><li>Series por plantilla</li><li>Plantilla por cliente</li>
               </ul>
             </div>
           </article>
@@ -253,7 +253,7 @@
             <span class="step-number">01</span>
             <div class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L8 18l-4 1 1-4Z"/></svg></div>
             <h3>Configura</h3>
-            <p>Añade emisores, clientes y plantillas. Define series ordinarias y rectificativas, y guarda el identificador bancario de cada cliente.</p>
+            <p>Añade emisores, clientes y plantillas. Define series ordinarias y rectificativas para cada plantilla, y guarda los identificadores bancarios de los pacientes.</p>
           </li>
           <li class="workflow-step reveal">
             <span class="step-number">02</span>
@@ -340,7 +340,7 @@
                 <span class="window-status"><i></i> Conectado</span>
               </div>
               <button class="image-button" type="button" data-lightbox="assets/screenshots/02-facturas.png" aria-label="Ampliar captura de la gestión de facturas">
-                <img src="assets/screenshots/02-facturas.png" alt="Tabla de facturas con estados, filtros y acción de envío a la Agencia Tributaria" width="1875" height="1055" loading="lazy">
+                <img src="assets/screenshots/02-facturas.png" alt="Tabla de facturas con estados, filtros y acción de envío a la Agencia Tributaria" width="1875" height="1150" loading="lazy">
               </button>
             </div>
             <div class="status-legend" aria-label="Estados posibles de una factura">
@@ -372,7 +372,7 @@
                 <span class="window-title">Historial agencia tributaria</span>
               </div>
               <button class="image-button" type="button" data-lightbox="assets/screenshots/09-historial-agencia-tributaria.png" aria-label="Ampliar captura del historial de una factura">
-                <img src="assets/screenshots/09-historial-agencia-tributaria.png" alt="Historial de registros de una factura con la acción Emitir factura rectificativa" width="1875" height="1055" loading="lazy">
+                <img src="assets/screenshots/09-historial-agencia-tributaria.png" alt="Historial de registros de una factura con la acción Emitir factura rectificativa" width="1875" height="1150" loading="lazy">
               </button>
             </div>
           </div>
@@ -390,15 +390,6 @@
           </div>
         </div>
 
-        <div class="rectification-editor reveal">
-          <div class="rectification-editor-label">
-            <strong>Edición de la rectificativa</strong>
-            <span>Datos nuevos a la izquierda · factura original a la derecha</span>
-          </div>
-          <button class="image-button" type="button" data-lightbox="assets/screenshots/10-factura-rectificativa.png" aria-label="Ampliar captura del editor de una factura rectificativa">
-            <img src="assets/screenshots/10-factura-rectificativa.png" alt="Editor dividido de una factura rectificativa con los datos de la factura original" width="1750" height="1055" loading="lazy">
-          </button>
-        </div>
       </div>
     </section>
 
@@ -421,7 +412,7 @@
 
           <figure class="gallery-item reveal">
             <button type="button" data-lightbox="assets/screenshots/09-historial-agencia-tributaria.png" aria-label="Ampliar captura del historial de una factura">
-              <img src="assets/screenshots/09-historial-agencia-tributaria.png" alt="Historial de envíos con acciones de subsanar, anular o emitir una factura rectificativa" width="1875" height="1055" loading="lazy">
+              <img src="assets/screenshots/09-historial-agencia-tributaria.png" alt="Historial de envíos con acciones de subsanar, anular o emitir una factura rectificativa" width="1875" height="1150" loading="lazy">
               <span class="zoom-icon" aria-hidden="true">↗</span>
             </button>
             <figcaption><strong>Historial fiscal</strong><span>Cada envío permanece disponible y las acciones dependen de su estado.</span></figcaption>
@@ -429,7 +420,7 @@
 
           <figure class="gallery-item gallery-large reveal">
             <button type="button" data-lightbox="assets/screenshots/03-plantillas.png" aria-label="Ampliar captura de plantillas de facturas">
-              <img src="assets/screenshots/03-plantillas.png" alt="Listado de plantillas de facturas PDF" width="1875" height="1055" loading="lazy">
+              <img src="assets/screenshots/03-plantillas.png" alt="Listado de plantillas de facturas PDF" width="1875" height="1150" loading="lazy">
               <span class="zoom-icon" aria-hidden="true">↗</span>
             </button>
             <figcaption><strong>Plantillas de facturas</strong><span>Un diseño distinto para cada tipo de cliente.</span></figcaption>
@@ -445,27 +436,20 @@
 
           <figure class="gallery-item reveal">
             <button type="button" data-lightbox="assets/screenshots/06-emisor.png" aria-label="Ampliar captura de los datos de un emisor">
-              <img src="assets/screenshots/06-emisor.png" alt="Formulario de emisor con series ordinaria y rectificativa y sus separadores" width="1150" height="950" loading="lazy">
+              <img src="assets/screenshots/06-emisor.png" alt="Formulario de emisor con sus datos fiscales, de contacto y domicilio" width="1150" height="950" loading="lazy">
               <span class="zoom-icon" aria-hidden="true">↗</span>
             </button>
-            <figcaption><strong>Dos series independientes</strong><span>Serie ordinaria y rectificativa, cada una con su separador.</span></figcaption>
+            <figcaption><strong>Datos del emisor</strong><span>Identidad fiscal, contacto y domicilio para las facturas.</span></figcaption>
           </figure>
 
           <figure class="gallery-item gallery-wide reveal">
-            <button type="button" data-lightbox="assets/screenshots/07-ayuda-serie.png" aria-label="Ampliar la ayuda sobre facturas rectificativas">
-              <img src="assets/screenshots/07-ayuda-serie.png" alt="Ayuda integrada que explica qué es una factura rectificativa y por qué utiliza otra serie" width="775" height="750" loading="lazy">
+            <button type="button" data-lightbox="assets/screenshots/07-ayuda-serie.png" aria-label="Ampliar la ayuda sobre las series de facturas">
+              <img src="assets/screenshots/07-ayuda-serie.png" alt="Ayuda integrada sobre la serie y el separador de las facturas" width="775" height="750" loading="lazy">
               <span class="zoom-icon" aria-hidden="true">↗</span>
             </button>
-            <figcaption><strong>Ayuda donde hace falta</strong><span>Qué es una rectificativa y por qué utiliza una serie independiente.</span></figcaption>
+            <figcaption><strong>Ayuda donde hace falta</strong><span>Consulta cómo separar y numerar tus facturas.</span></figcaption>
           </figure>
 
-          <figure class="gallery-item gallery-large reveal">
-            <button type="button" data-lightbox="assets/screenshots/10-factura-rectificativa.png" aria-label="Ampliar captura del editor de una factura rectificativa">
-              <img src="assets/screenshots/10-factura-rectificativa.png" alt="Edición de una factura rectificativa junto a los datos de su factura original" width="1750" height="1055" loading="lazy">
-              <span class="zoom-icon" aria-hidden="true">↗</span>
-            </button>
-            <figcaption><strong>Rectificación con contexto</strong><span>Edita el nuevo borrador consultando a la vez lo enviado en la factura original.</span></figcaption>
-          </figure>
         </div>
       </div>
     </section>
@@ -485,7 +469,7 @@
             <div>
               <h3>Configuración y datos maestros</h3>
               <ul>
-                <li>Uno o varios emisores, con validación del emisor autorizado</li>
+                <li>Uno o varios emisores</li>
                 <li>Series ordinaria y rectificativa con separadores recomendados</li>
                 <li>Clientes con NIF/CIF, dirección, contacto e identificador de pago bancario</li>
                 <li>Asignación de una plantilla de factura a cada cliente</li>
@@ -515,12 +499,9 @@
             <div>
               <h3>Documentos y consultas</h3>
               <ul>
-                <li>PDF individuales o por lotes con la plantilla de cada cliente</li>
+                <li>Generación de facturas en PDF individuales o por lotes (eligiendo múltiples)</li>
                 <li>Código QR generado desde la URL tributaria</li>
-                <li>PDF aplanado, sin campos editables ni bordes visibles</li>
-                <li>Exportación a Excel con el CSV del lote de envío</li>
                 <li>Filtros por texto, estado y rango inclusivo de fechas</li>
-                <li>Tooltips para URL completa, errores y datos del lote</li>
               </ul>
             </div>
           </article>
@@ -530,12 +511,11 @@
             <div>
               <h3>Envío y seguimiento en la Agencia Tributaria</h3>
               <ul>
-                <li>Límite configurable de facturas por lote</li>
-                <li>Orden cronológico y numeración correlativa automática</li>
-                <li>Huella del registro y encadenamiento con el registro anterior</li>
-                <li>XML SOAP y envío con un certificado instalado en Windows</li>
-                <li>Número de lote, CSV, estado y errores por factura</li>
-                <li>Logs independientes con petición y respuesta XML formateadas</li>
+                <li>Revisa y valida tus facturas antes de enviarlas</li>
+                <li>La aplicación detecta datos incompletos o incoherentes</li>
+                <li>Envía con tu certificado digital desde Windows</li>
+                <li>Consulta si cada factura ha sido aceptada o necesita revisión</li>
+                <li>Guarda un historial de cada envío y de la respuesta recibida</li>
                 <li>Historial inmutable de altas, subsanaciones, anulaciones y reintentos</li>
                 <li>Facturas rectificativas vinculadas a la original y con serie independiente</li>
               </ul>
