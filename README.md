@@ -9,10 +9,12 @@ Abre `index.html` directamente en el navegador. También puede publicarse copian
 ## Archivos
 
 - `index.html`: estructura y contenidos.
+- `actualidad/`: página editorial independiente con publicaciones seleccionables y sus fuentes oficiales.
 - `styles.css`: diseño responsive, animaciones y estilos de impresión visual.
 - `translations.js`: traducciones completas al gallego, catalán e inglés.
 - `app.js`: selector de idioma, menú móvil, animaciones y galería ampliable. El idioma elegido se conserva en el navegador y también se puede abrir directamente con `?lang=gl`, `?lang=ca` o `?lang=en`.
 - `assets/screenshots/`: nueve capturas reales de la aplicación con datos ficticios, incluida la importación bancaria y el historial de facturas rectificativas.
+- `robots.txt` y `sitemap.xml`: archivos básicos para facilitar el rastreo de la web y de la sección de actualidad.
 - `capture_screenshots.py`: generador reproducible de las capturas usando el código actual de la aplicación. Crea una base temporal y no accede a los datos reales de Factinxela.
 
 Para regenerar las capturas en Windows:

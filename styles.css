@@ -2227,6 +2227,12 @@ button {
   .privacy-badges { grid-column: 2; flex-direction: row; flex-wrap: wrap; }
 }
 
+@media (max-width: 1250px) and (min-width: 901px) {
+  .main-nav { gap: 15px; }
+  .main-nav > a:not(.button) { font-size: 13px; }
+  .nav-cta { padding-inline: 14px; }
+}
+
 @media (max-width: 900px) {
   .container { width: min(calc(100% - 36px), var(--container)); }
   .nav-toggle { display: block; }

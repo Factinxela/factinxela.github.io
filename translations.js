@@ -8,6 +8,7 @@ window.FACTINXELA_TRANSLATIONS = {
   "Rectificativas": { gl: "Rectificativas", ca: "Rectificatives", en: "Corrective invoices" },
   "Capturas": { gl: "Capturas", ca: "Captures", en: "Screenshots" },
   "Precios": { gl: "Prezos", ca: "Preus", en: "Pricing" },
+  "Actualidad": { gl: "Actualidade", ca: "Actualitat", en: "News" },
   "Ver todas las funciones": { gl: "Ver todas as funcións", ca: "Veure totes les funcions", en: "See all features" },
   "Facturación local + VERI*FACTU": { gl: "Facturación local + VERI*FACTU", ca: "Facturació local + VERI*FACTU", en: "Local invoicing + VERI*FACTU" },
   "Facturación sencilla.": { gl: "Facturación sinxela.", ca: "Facturació senzilla.", en: "Simple invoicing." },
