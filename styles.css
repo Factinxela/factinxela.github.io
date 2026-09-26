@@ -1532,119 +1532,6 @@ button {
   font-size: 11px;
 }
 
-.gallery-section {
-  background: #fff;
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: 1.2fr .8fr .8fr;
-  gap: 18px;
-  align-items: stretch;
-}
-
-.gallery-item {
-  display: flex;
-  min-width: 0;
-  margin: 0;
-  flex-direction: column;
-  overflow: hidden;
-  background: var(--surface-soft);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  transition: transform .25s ease, box-shadow .25s ease;
-}
-
-.gallery-item:hover {
-  box-shadow: var(--shadow-sm);
-  transform: translateY(-4px);
-}
-
-.gallery-item > button {
-  position: relative;
-  display: block;
-  min-height: 280px;
-  padding: 0;
-  overflow: hidden;
-  background: #edf1f7;
-  border: 0;
-  cursor: zoom-in;
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 280px;
-  object-fit: cover;
-  object-position: top left;
-  transition: transform .45s ease;
-}
-
-.gallery-item:hover img {
-  transform: scale(1.025);
-}
-
-.gallery-large {
-  grid-column: span 2;
-}
-
-.gallery-large img {
-  object-position: top center;
-}
-
-.gallery-wide {
-  grid-column: span 2;
-}
-
-.gallery-wide > button {
-  background: linear-gradient(135deg, #e8f8f6, #eef2fb);
-}
-
-.gallery-wide img {
-  object-fit: contain;
-  object-position: center;
-}
-
-.zoom-icon {
-  position: absolute;
-  right: 14px;
-  bottom: 14px;
-  display: grid;
-  width: 36px;
-  height: 36px;
-  color: #fff;
-  background: rgba(16, 27, 51, .8);
-  border-radius: 10px;
-  font-size: 16px;
-  opacity: 0;
-  place-items: center;
-  transform: translateY(6px);
-  transition: opacity .2s ease, transform .2s ease;
-  backdrop-filter: blur(8px);
-}
-
-.gallery-item:hover .zoom-icon,
-.gallery-item button:focus-visible .zoom-icon {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.gallery-item figcaption {
-  display: flex;
-  min-height: 84px;
-  padding: 18px 20px;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.gallery-item figcaption strong {
-  font-size: 15px;
-}
-
-.gallery-item figcaption span {
-  color: var(--ink-soft);
-  font-size: 12px;
-}
-
 .details-section {
   background: var(--surface-soft);
 }
@@ -2297,9 +2184,6 @@ button {
   .aeat-flow-line { display: none; }
   .rectification-grid { grid-template-columns: 1fr; }
   .rectification-copy { max-width: 720px; }
-  .gallery-grid { grid-template-columns: 1fr 1fr; }
-  .gallery-large { grid-column: span 2; }
-  .gallery-wide { grid-column: auto; }
   .details-grid { grid-template-columns: 1fr; gap: 45px; }
   .details-sticky { position: static; max-width: 700px; }
   .pricing-grid { grid-template-columns: 1fr; max-width: 720px; margin-inline: auto; }
@@ -2357,10 +2241,6 @@ button {
   .rectification-copy { padding: 24px; }
   .rectification-editor { margin-top: 36px; }
   .rectification-editor-label { gap: 6px; align-items: flex-start; flex-direction: column; }
-  .gallery-grid { grid-template-columns: 1fr; }
-  .gallery-large, .gallery-wide { grid-column: auto; }
-  .gallery-item > button, .gallery-item img { min-height: 220px; height: 220px; }
-  .gallery-wide img { object-fit: contain; }
   .detail-group { grid-template-columns: 34px 1fr; }
   .detail-group ul { grid-template-columns: 1fr; }
   .pricing-card { padding: 30px 25px; }
