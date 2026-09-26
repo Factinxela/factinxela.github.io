@@ -3,11 +3,14 @@
   --ink-soft: #53627c;
   --navy: #101b33;
   --navy-deep: #091226;
-  --teal: #0d9c91;
-  --teal-dark: #087b73;
-  --teal-pale: #e5f7f4;
-  --blue: #2156d9;
-  --blue-pale: #eaf0ff;
+  --teal: #009da8;
+  --teal-dark: #007785;
+  --teal-pale: #e4f8f8;
+  --brand-cyan: #00c0c0;
+  --brand-cyan-soft: #5edbd5;
+  --brand-blue: #0870aa;
+  --blue: #0a66ad;
+  --blue-pale: #e8f2fb;
   --coral: #ed6a5a;
   --violet: #7559d9;
   --amber: #d98913;
@@ -111,7 +114,7 @@ button {
 }
 
 :focus-visible {
-  outline: 3px solid rgba(13, 156, 145, .45);
+  outline: 3px solid rgba(0, 192, 192, .42);
   outline-offset: 3px;
 }
 
@@ -122,12 +125,13 @@ button {
   right: 0;
   left: 0;
   color: #fff;
+  background: #081124;
   border-bottom: 1px solid rgba(255, 255, 255, .1);
   transition: background .25s ease, box-shadow .25s ease, border-color .25s ease;
 }
 
 .site-header.scrolled {
-  background: rgba(11, 21, 42, .92);
+  background: #081124;
   border-bottom-color: rgba(255, 255, 255, .08);
   box-shadow: 0 10px 30px rgba(5, 12, 25, .18);
   backdrop-filter: blur(18px);
@@ -143,31 +147,29 @@ button {
 
 .brand {
   display: inline-flex;
-  gap: 10px;
   align-items: center;
-  font-size: 21px;
-  font-weight: 800;
-  letter-spacing: -.035em;
+  flex: 0 0 auto;
 }
 
-.brand-mark {
-  display: grid;
-  width: 35px;
-  height: 35px;
-  color: #fff;
-  background: var(--teal);
-  border-radius: 10px;
-  place-items: center;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .28);
+.brand-logo-crop {
+  display: block;
+  width: clamp(158px, 15.2vw, 220px);
+  overflow: hidden;
+  aspect-ratio: 2259 / 400;
+  transition: transform .2s ease;
 }
 
-.brand-mark svg {
-  width: 24px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+.brand-logo {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  transform: translateY(-16.5%);
+}
+
+.brand:hover .brand-logo-crop,
+.brand:focus-visible .brand-logo-crop {
+  transform: translateY(-1px);
 }
 
 .main-nav {
@@ -215,7 +217,7 @@ button {
 
 .language-toggle:hover,
 .language-toggle[aria-expanded="true"] {
-  background: rgba(13, 156, 145, .2);
+  background: rgba(0, 192, 192, .18);
   border-color: rgba(111, 225, 214, .55);
 }
 
@@ -366,13 +368,13 @@ button {
 
 .button-primary {
   color: #fff;
-  background: var(--teal);
-  box-shadow: 0 10px 24px rgba(13, 156, 145, .26);
+  background: linear-gradient(135deg, var(--teal), var(--brand-blue));
+  box-shadow: 0 10px 24px rgba(0, 157, 168, .28);
 }
 
 .button-primary:hover {
-  background: #10aaa0;
-  box-shadow: 0 13px 30px rgba(13, 156, 145, .34);
+  background: linear-gradient(135deg, #00aeb5, #087cae);
+  box-shadow: 0 13px 30px rgba(0, 174, 181, .34);
 }
 
 .button-ghost {
@@ -430,7 +432,7 @@ button {
   right: -100px;
   width: 510px;
   height: 510px;
-  background: radial-gradient(circle, rgba(13, 156, 145, .24), transparent 68%);
+  background: radial-gradient(circle, rgba(0, 192, 192, .23), transparent 68%);
 }
 
 .hero-glow-two {
@@ -458,7 +460,7 @@ button {
   display: inline-flex;
   gap: 9px;
   align-items: center;
-  color: #86e0d7;
+  color: var(--brand-cyan-soft);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: .12em;
@@ -477,7 +479,7 @@ button {
 }
 
 .eyebrow-light {
-  color: #a9eee7;
+  color: #8ce8e3;
 }
 
 .hero h1 {
@@ -489,8 +491,12 @@ button {
 }
 
 .hero h1 em {
-  color: #78dbd1;
+  color: var(--brand-cyan-soft);
+  background: linear-gradient(90deg, var(--brand-cyan-soft), var(--brand-cyan) 58%, var(--brand-blue) 115%);
+  background-clip: text;
+  -webkit-background-clip: text;
   font-style: normal;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-lead {
@@ -528,8 +534,8 @@ button {
   display: grid;
   width: 18px;
   height: 18px;
-  color: #c9fff9;
-  background: rgba(13, 156, 145, .25);
+  color: #cefffb;
+  background: rgba(0, 192, 192, .22);
   border-radius: 50%;
   font-size: 11px;
   place-items: center;
@@ -818,7 +824,7 @@ button {
   bottom: -90px;
   width: 190px;
   height: 190px;
-  background: radial-gradient(circle, rgba(13, 156, 145, .08), transparent 68%);
+  background: radial-gradient(circle, rgba(0, 192, 192, .08), transparent 68%);
   content: "";
 }
 
@@ -869,12 +875,12 @@ button {
   margin-bottom: 0;
 }
 
-.icon-teal { color: #087b73; background: #dff6f3; }
+.icon-teal { color: var(--teal-dark); background: var(--teal-pale); }
 .icon-blue { color: #2856bf; background: #e7eeff; }
 .icon-coral { color: #c94f42; background: #ffebe7; }
 .icon-violet { color: #694bc6; background: #eee9ff; }
 .icon-amber { color: #b26d09; background: #fff2d8; }
-.icon-on-dark { color: #b4fff7; background: rgba(79, 222, 208, .13); }
+.icon-on-dark { color: #c6fffb; background: rgba(0, 192, 192, .13); }
 
 .card-kicker {
   display: block;
@@ -887,7 +893,7 @@ button {
 }
 
 .feature-dark .card-kicker {
-  color: #8ce1d8;
+  color: var(--brand-cyan-soft);
 }
 
 .feature-card h3 {
@@ -945,7 +951,7 @@ button {
 
 .mini-sequence small {
   display: block;
-  color: #83dcd3;
+  color: var(--brand-cyan-soft);
   font-size: 8px;
 }
 
@@ -1077,7 +1083,7 @@ button {
 .bank-visual::before {
   position: absolute;
   inset: 0 8% 0 4%;
-  background: linear-gradient(135deg, rgba(13, 156, 145, .15), rgba(33, 86, 217, .13));
+  background: linear-gradient(135deg, rgba(0, 192, 192, .15), rgba(8, 112, 170, .13));
   border-radius: 35% 65% 54% 46% / 42% 39% 61% 58%;
   content: "";
   transform: rotate(3deg);
@@ -1134,7 +1140,7 @@ button {
   left: -150px;
   width: 520px;
   height: 520px;
-  background: radial-gradient(circle, rgba(13, 156, 145, .07), transparent 68%);
+  background: radial-gradient(circle, rgba(0, 192, 192, .07), transparent 68%);
   content: "";
 }
 
@@ -1372,8 +1378,8 @@ button {
   flex: 0 0 auto;
   width: 34px;
   height: 34px;
-  color: #8cded6;
-  background: rgba(13, 156, 145, .12);
+  color: var(--brand-cyan-soft);
+  background: rgba(0, 192, 192, .11);
   border: 1px solid rgba(97, 225, 212, .22);
   border-radius: 50%;
   font-size: 11px;
@@ -1383,8 +1389,8 @@ button {
 
 .aeat-flow-item.active > span {
   color: #061b1a;
-  background: #75d9cf;
-  box-shadow: 0 0 0 7px rgba(117, 217, 207, .08);
+  background: var(--brand-cyan-soft);
+  box-shadow: 0 0 0 7px rgba(94, 219, 213, .08);
 }
 
 .aeat-flow-item strong,
@@ -1646,7 +1652,7 @@ button {
   bottom: -110px;
   width: 250px;
   height: 250px;
-  background: radial-gradient(circle, rgba(13, 156, 145, .14), transparent 68%);
+  background: radial-gradient(circle, rgba(0, 192, 192, .14), transparent 68%);
   content: "";
 }
 
@@ -1683,7 +1689,7 @@ button {
   padding: 6px 10px;
   color: var(--teal-dark);
   background: rgba(255, 255, 255, .72);
-  border: 1px solid rgba(13, 156, 145, .17);
+  border: 1px solid rgba(0, 157, 168, .17);
   border-radius: 999px;
   font-size: 10px;
   font-weight: 800;
@@ -1727,7 +1733,7 @@ button {
   align-items: baseline;
   padding: 21px 0 18px;
   margin-top: 23px;
-  border-top: 1px solid rgba(13, 156, 145, .2);
+  border-top: 1px solid rgba(0, 157, 168, .2);
 }
 
 .pricing-add-on strong {
@@ -1746,7 +1752,7 @@ button {
   padding: 18px 0 0;
   margin: 0;
   gap: 12px;
-  border-top: 1px solid rgba(13, 156, 145, .2);
+  border-top: 1px solid rgba(0, 157, 168, .2);
   list-style: none;
 }
 
@@ -1785,7 +1791,7 @@ button {
 }
 
 .pricing-message span {
-  color: #86e0d7;
+  color: var(--brand-cyan-soft);
   font-size: 11px;
   font-weight: 900;
   letter-spacing: .12em;
@@ -1819,7 +1825,7 @@ button {
   display: grid;
   width: 70px;
   height: 70px;
-  color: #bafff7;
+  color: #cefffb;
   background: rgba(255, 255, 255, .08);
   border: 1px solid rgba(255, 255, 255, .15);
   border-radius: 20px;
@@ -1855,7 +1861,7 @@ button {
 
 .privacy-badges span {
   padding: 8px 12px;
-  color: #d5fffb;
+  color: #cefffb;
   background: rgba(255, 255, 255, .07);
   border: 1px solid rgba(255, 255, 255, .1);
   border-radius: 999px;
@@ -1888,7 +1894,7 @@ button {
 }
 
 .contact-card:hover {
-  border-color: rgba(13, 156, 145, .45);
+  border-color: rgba(0, 157, 168, .45);
   box-shadow: 0 18px 40px rgba(16, 27, 51, .12);
   transform: translateY(-4px);
 }
@@ -1976,7 +1982,7 @@ button {
 }
 
 .cta-label {
-  color: #a8eee7;
+  color: #96eee9;
   font-size: 12px;
   font-weight: 900;
   letter-spacing: .14em;
@@ -2003,17 +2009,10 @@ button {
 
 .brand-footer {
   color: #fff;
-  font-size: 18px;
 }
 
-.brand-footer .brand-mark {
-  width: 31px;
-  height: 31px;
-  border-radius: 9px;
-}
-
-.brand-footer .brand-mark svg {
-  width: 21px;
+.brand-footer .brand-logo-crop {
+  width: 172px;
 }
 
 .site-footer p {
