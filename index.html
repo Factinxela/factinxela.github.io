@@ -3,14 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Factinxela convierte cobros identificados de Bizum o transferencia en borradores de factura, genera PDF y permite enviar facturas ordinarias y rectificativas a la Agencia Tributaria.">
+  <meta name="description" content="Software de facturación automática para autónomos y profesionales. Factinxela identifica tus cobros, prepara tus facturas y deja cada trimestre listo para tu gestoría.">
   <meta name="theme-color" content="#101b33">
-  <meta property="og:title" content="Factinxela · Facturación clara y sencilla">
-  <meta property="og:description" content="De los cobros del banco a facturas ordinarias o rectificativas enviadas a la Agencia Tributaria.">
+  <meta property="og:title" content="Factinxela | Facturación automática para autónomos y profesionales">
+  <meta property="og:description" content="Factinxela identifica tus cobros, prepara tus facturas y deja cada trimestre listo para tu gestoría.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://factinxela.es/">
   <meta property="og:image" content="assets/screenshots/01-panel-principal.png">
-  <title>Factinxela · Facturación clara y sencilla</title>
+  <link rel="canonical" href="https://factinxela.es/">
+  <title>Factinxela | Facturación automática para autónomos y profesionales</title>
   <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://factinxela.es/#organization",
+    "name": "Factinxela",
+    "url": "https://factinxela.es/",
+    "logo": "https://factinxela.es/assets/Factinxela_dark.png"
+  }
+  </script>
   <script src="translations.js" defer></script>
   <script src="app.js" defer></script>
 </head>
@@ -31,10 +43,11 @@
       </button>
 
       <nav class="main-nav" id="main-nav" aria-label="Navegación principal" data-nav>
-        <a href="#banco">Importación bancaria</a>
-        <a href="#plantillas">Plantillas PDF</a>
-        <a href="#aeat">Agencia tributaria</a>
-        <a href="#precios">Precios</a>
+        <a href="#flujo">Cómo funciona</a>
+        <a href="#funciones">Funciones</a>
+        <a href="/verifactu/">VERI*FACTU</a>
+        <a href="/precios/">Precios</a>
+        <a href="#preguntas">FAQ</a>
         <a href="#contacto">Contacto</a>
         <a href="actualidad/">Actualidad</a>
         <a class="button button-small button-primary nav-cta" href="/demo">Ver demo</a>
@@ -62,21 +75,14 @@
       <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
       <div class="container hero-grid">
         <div class="hero-copy reveal">
-          <div class="eyebrow"><span></span> Facturación local + VERI*FACTU</div>
-          <h1>Facturación sencilla.<br><em>Del cobro al envío.</em></h1>
-          <p class="hero-lead">Convierte los cobros identificados de Bizum o transferencia en borradores de factura, revísalos y envía facturas ordinarias o rectificativas a la Agencia Tributaria desde una sola aplicación.</p>
+          <div class="eyebrow"><span></span> Facturación automática para autónomos y profesionales · VERI*FACTU</div>
+          <h1>Automatiza tu facturación<br><em>a partir de tus cobros</em></h1>
+          <p class="hero-claim">Del cobro al envío.</p>
+          <p class="hero-lead">Factinxela identifica tus cobros, prepara tus facturas y deja cada trimestre listo para tu gestoría.</p>
+          <p class="hero-benefit"><strong>Facturación mensual automatizada.</strong> Gestión trimestral sin trabajo adicional.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#flujo">
-              Descubrir cómo funciona
-              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6"/></svg>
-            </a>
-            <a class="button button-ghost" href="#descubrir">Ver todas las funciones</a>
+            <a class="button button-ghost" href="#flujo">Quiero saber más</a>
           </div>
-          <ul class="hero-points" aria-label="Ventajas principales">
-            <li><span aria-hidden="true">✓</span> Cobros convertidos en borradores</li>
-            <li><span aria-hidden="true">✓</span> PDF sin Word</li>
-            <li><span aria-hidden="true">✓</span> Datos en tu equipo</li>
-          </ul>
         </div>
 
         <div class="hero-visual reveal reveal-delay">
@@ -92,7 +98,7 @@
           </div>
           <div class="floating-card floating-card-top" aria-hidden="true">
             <span class="float-icon float-icon-green">✓</span>
-            <span><strong>Factura aceptada</strong><small>Registro remitido a la Agencia Tributaria</small></span>
+            <span><strong>Registro aceptado por la AEAT</strong><small>Respuesta del registro de facturación</small></span>
           </div>
           <div class="floating-card floating-card-bottom" aria-hidden="true">
             <span class="float-icon float-icon-blue">€</span>
@@ -102,19 +108,146 @@
       </div>
     </section>
 
-    <section class="trust-strip" aria-label="Características destacadas">
+    <section class="trust-strip" aria-label="Los tres pilares de Factinxela">
       <div class="container trust-grid">
-        <div><strong>Banco</strong><span>cobros a borradores</span></div>
-        <div><strong>PDF</strong><span>formularios editables</span></div>
-        <div><strong>Excel</strong><span>importación y exportación</span></div>
-        <div><strong>VERI*FACTU</strong><span>envío y trazabilidad</span></div>
+        <div><strong>Automatiza</strong><span>Del cobro a la factura.</span></div>
+        <div><strong>Simplifica</strong><span>Cada trimestre preparado para tu gestoría.</span></div>
+        <div><strong>Mantén el control</strong><span>Tus datos operativos permanecen en tu equipo</span></div>
+      </div>
+    </section>
+
+    <section class="section problem-section" id="beneficios">
+      <div class="container">
+        <div class="section-heading centered reveal">
+          <div class="eyebrow eyebrow-teal"><span></span> Menos papeleo, más control</div>
+          <h2>Que los cobros no se conviertan en facturas pendientes</h2>
+          <p>Si dejas la facturación para el final del trimestre, toca reconstruir pagos, buscar datos y preparar documentos deprisa. Factinxela te ayuda a llevar ese trabajo al día y a compartirlo con tu gestoría.</p>
+        </div>
+        <div class="benefit-grid">
+          <article class="benefit-card reveal">
+            <span class="benefit-number">01</span>
+            <h3>Cada cobro, en su sitio</h3>
+            <p>Relaciona los Bizum y las transferencias identificados con el cliente y prepara sus borradores de factura.</p>
+          </article>
+          <article class="benefit-card reveal">
+            <span class="benefit-number">02</span>
+            <h3>Menos trabajo repetido</h3>
+            <p>Reutiliza los datos de clientes y tus plantillas PDF para generar facturas sin volver a rellenarlo todo a mano.</p>
+          </article>
+          <article class="benefit-card reveal">
+            <span class="benefit-number">03</span>
+            <h3>El trimestre, más ordenado</h3>
+            <p>Revisa las facturas durante el mes y prepara los PDF y listados que compartirás con tu gestoría.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section audience-section" id="para-quien">
+      <div class="container">
+        <div class="section-heading centered reveal">
+          <div class="eyebrow eyebrow-teal"><span></span> ¿Te suena?</div>
+          <h2>Hecho para profesionales que facturan mucho y no quieren perder tiempo haciéndolo</h2>
+          <p>Factinxela ayuda a llevar al día los cobros y las facturas de negocios de servicios, con revisión antes de cada envío.</p>
+        </div>
+        <div class="audience-grid">
+          <article class="audience-card audience-card-featured reveal">
+            <span class="audience-kicker">Sesiones recurrentes</span>
+            <h3>Psicólogos y terapeutas</h3>
+            <p>Organiza la facturación de múltiples pacientes y convierte cobros identificados de Bizum o transferencia en borradores.</p>
+          </article>
+          <article class="audience-card reveal">
+            <span class="audience-kicker">Servicios de salud</span>
+            <h3>Profesionales sanitarios</h3>
+            <p>Logopedas, fisioterapeutas y nutricionistas pueden reutilizar los datos de sus pacientes y sus plantillas al preparar facturas.</p>
+          </article>
+          <article class="audience-card reveal">
+            <span class="audience-kicker">Por proyecto o servicio</span>
+            <h3>Consultores y profesionales independientes</h3>
+            <p>Prepara facturas para trabajos puntuales o recurrentes, manualmente o desde cobros identificados del banco.</p>
+          </article>
+        </div>
+        <div class="audience-cta reveal">
+          <a class="button button-primary" href="/facturacion-psicologos/">Ver Factinxela para psicólogos <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section trust-story-section">
+      <div class="container">
+        <div class="trust-story-card reveal">
+          <div class="trust-story-copy">
+            <div class="eyebrow eyebrow-light"><span></span> Desarrollado a partir de un problema real</div>
+            <h2>Factinxela nació automatizando la facturación real de una consulta profesional.</h2>
+            <p>El producto se ha construido alrededor del trabajo que ocurre después de cada cobro: identificarlo, preparar la factura y dejar la documentación lista para revisar.</p>
+          </div>
+          <figure class="trust-story-quote reveal reveal-delay">
+            <blockquote>Madre mía, es que no puede ser más rápido. Es increíble. Lo que consigue este programa es impresionante; no sabes el tiempo que me ahorra.</blockquote>
+            <figcaption>Feedback recibido de una profesional usuaria</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section workflow-section" id="flujo">
+      <div class="container">
+        <div class="section-heading split-heading reveal">
+          <div>
+            <div class="eyebrow eyebrow-teal"><span></span> Un flujo que se entiende</div>
+            <h2>Cuatro pasos, de principio a fin</h2>
+          </div>
+          <p>Factinxela te guía y valida la información antes de cada punto importante. Tú mantienes el control sobre qué se genera y qué se envía.</p>
+        </div>
+        <ol class="workflow-grid">
+          <li class="workflow-step reveal">
+            <span class="step-number">01</span>
+            <div class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L8 18l-4 1 1-4Z"/></svg></div>
+            <h3>Configura</h3>
+            <p>Añade emisores, clientes y plantillas. Define series ordinarias y rectificativas para cada plantilla, y guarda los identificadores de pago.</p>
+          </li>
+          <li class="workflow-step reveal">
+            <span class="step-number">02</span>
+            <div class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg></div>
+            <h3>Crea o importa</h3>
+            <p>Introduce una factura o transforma Bizum y transferencias identificados en borradores listos para revisar.</p>
+          </li>
+          <li class="workflow-step reveal">
+            <span class="step-number">03</span>
+            <div class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 11 3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+            <h3>Revisa</h3>
+            <p>Comprueba fechas, plantillas, impuestos y totales. Solo los borradores válidos pueden continuar.</p>
+          </li>
+          <li class="workflow-step reveal">
+            <span class="step-number">04</span>
+            <div class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4Z"/></svg></div>
+            <h3>Envía y archiva</h3>
+            <p>Elige tu certificado, envía a la Agencia Tributaria y conserva el estado y el historial del intercambio.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section privacy-section">
+      <div class="container privacy-card reveal">
+        <div class="privacy-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32"><path d="M16 29s11-5.5 11-14V6L16 2 5 6v9c0 8.5 11 14 11 14Z"/><path d="M11.5 16.5 15 20l6-8"/></svg>
+        </div>
+        <div>
+          <div class="eyebrow eyebrow-light"><span></span> Trabajo local</div>
+          <h2>Tus datos operativos permanecen en tu equipo</h2>
+          <p>Factinxela usa una base de datos local. Cuando decides enviar, transmite el registro necesario a la Agencia Tributaria mediante el servicio configurado y deja una traza legible del intercambio.</p>
+        </div>
+        <div class="privacy-badges">
+          <span>Base de datos local</span>
+          <span>Certificado bajo tu control</span>
+        </div>
       </div>
     </section>
 
     <section class="section section-intro" id="funciones">
       <div class="container">
         <div class="section-heading centered reveal">
-          <div class="eyebrow eyebrow-teal"><span></span> Una aplicación, todo el recorrido</div>
+          <div class="eyebrow eyebrow-teal"><span></span> Funciones al detalle</div>
           <h2>De un cobro del banco a una factura enviada</h2>
           <p>Menos saltos entre programas y menos tareas repetitivas. Cada parte de Factinxela está conectada con la siguiente.</p>
         </div>
@@ -185,15 +318,6 @@
             <h3>Una tabla a tu manera</h3>
             <p>Filtra entre dos fechas inclusivas, ordena registros y decide qué columnas ver. También puedes cambiar su orden arrastrándolas.</p>
           </article>
-
-          <article class="feature-card reveal">
-            <div class="feature-icon icon-coral" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M4 4h12l4 4v12H4Z"/><path d="M16 4v5h5M8 13h8M8 17h5"/><path d="m7 8 2 2 3-3"/></svg>
-            </div>
-            <span class="card-kicker">Corrige conservando el historial</span>
-            <h3>Facturas rectificativas</h3>
-            <p>Parte de una factura enviada, indica el motivo y prepara una rectificativa vinculada a la original, con serie propia y envío a la Agencia Tributaria.</p>
-          </article>
         </div>
       </div>
     </section>
@@ -203,7 +327,7 @@
         <div class="bank-copy reveal">
           <div class="eyebrow eyebrow-teal"><span></span> Importación desde el banco</div>
           <h2>Del Bizum o la transferencia al borrador, sin volver a teclear</h2>
-          <p class="large-copy">Exporta los movimientos del banco a Excel y deja que Factinxela convierta los cobros identificados en borradores de factura. Puedes filtrar el periodo, agrupar pagos y elegir una fecha de expedición común.</p>
+          <p class="large-copy">Exporta los movimientos del banco a Excel y deja que Factinxela convierta los cobros identificados en borradores de factura. Puedes seleccionar el período y agrupar operaciones cuando resulte procedente, manteniendo separadas las fechas de operación, cobro y expedición.</p>
           <div class="bank-callout">
             <strong>La identificación del cliente es imprescindible</strong>
             <p>El texto del movimiento bancario debe contener el alias guardado en el campo <em>Identificador de pago</em> del cliente. Puede ser su nombre, sus iniciales, un teléfono u otra referencia que aparezca tanto en el Bizum como en la transferencia.</p>
@@ -234,45 +358,6 @@
       </div>
     </section>
 
-    <section class="section workflow-section" id="flujo">
-      <div class="container">
-        <div class="section-heading split-heading reveal">
-          <div>
-            <div class="eyebrow eyebrow-teal"><span></span> Un flujo que se entiende</div>
-            <h2>Cuatro pasos, de principio a fin</h2>
-          </div>
-          <p>Factinxela te guía y valida la información antes de cada punto importante. Tú mantienes el control sobre qué se genera y qué se envía.</p>
-        </div>
-
-        <ol class="workflow-grid">
-          <li class="workflow-step reveal">
-            <span class="step-number">01</span>
-            <div class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L8 18l-4 1 1-4Z"/></svg></div>
-            <h3>Configura</h3>
-            <p>Añade emisores, clientes y plantillas. Define series ordinarias y rectificativas para cada plantilla, y guarda los identificadores bancarios de los pacientes.</p>
-          </li>
-          <li class="workflow-step reveal">
-            <span class="step-number">02</span>
-            <div class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg></div>
-            <h3>Crea o importa</h3>
-            <p>Introduce una factura manualmente o transforma Bizum y transferencias identificados en borradores listos para revisar.</p>
-          </li>
-          <li class="workflow-step reveal">
-            <span class="step-number">03</span>
-            <div class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 11 3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
-            <h3>Revisa</h3>
-            <p>Comprueba fechas, plantillas, impuestos y totales. Solo los borradores válidos pueden continuar.</p>
-          </li>
-          <li class="workflow-step reveal">
-            <span class="step-number">04</span>
-            <div class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4Z"/></svg></div>
-            <h3>Envía y archiva</h3>
-            <p>Elige tu certificado, remite el lote a la Agencia Tributaria y conserva el estado, el CSV y los XML del intercambio.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
     <section class="section template-section" id="plantillas">
       <div class="container template-grid">
         <div class="template-copy reveal">
@@ -283,7 +368,6 @@
             <li><span>✓</span><div><strong>Campos obligatorios validados</strong><small>Evita guardar una plantilla que no pueda producir una factura completa.</small></div></li>
             <li><span>✓</span><div><strong>Impuestos según cada plantilla</strong><small>IVA, IRPF y base imponible se exigen solo cuando corresponde.</small></div></li>
             <li><span>✓</span><div><strong>Código QR real</strong><small>Genera la imagen desde la URL tributaria y comprueba que su recuadro mida entre 30 y 40 mm.</small></div></li>
-            <li><span>✓</span><div><strong>Salida limpia y no editable</strong><small>Rellena, elimina los bordes de los campos y aplana el PDF sin Word ni LibreOffice.</small></div></li>
           </ul>
         </div>
 
@@ -301,91 +385,6 @@
             </button>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section class="section aeat-section" id="aeat">
-      <div class="aeat-glow" aria-hidden="true"></div>
-      <div class="container">
-        <div class="section-heading split-heading light-heading reveal">
-          <div>
-            <div class="eyebrow eyebrow-light"><span></span> Envío a la Agencia Tributaria · VERI*FACTU</div>
-            <h2>Del borrador al registro, con trazabilidad</h2>
-          </div>
-          <p>Antes de remitir nada, Factinxela realiza las comprobaciones que evitan errores de numeración, fechas o configuración.</p>
-        </div>
-
-        <div class="aeat-layout">
-          <div class="aeat-flow reveal" aria-label="Proceso de envío a la Agencia Tributaria">
-            <div class="aeat-flow-item active"><span>1</span><div><strong>Validar selección</strong><small>Estado, cliente, plantilla, límites y cronología</small></div></div>
-            <div class="aeat-flow-line"></div>
-            <div class="aeat-flow-item"><span>2</span><div><strong>Cerrar y numerar</strong><small>Orden por fecha y números correlativos por serie</small></div></div>
-            <div class="aeat-flow-line"></div>
-            <div class="aeat-flow-item"><span>3</span><div><strong>Crear registro</strong><small>Huella SHA-256, encadenamiento, URL y XML SOAP</small></div></div>
-            <div class="aeat-flow-line"></div>
-            <div class="aeat-flow-item"><span>4</span><div><strong>Enviar con certificado</strong><small>Selección desde el almacén personal de Windows</small></div></div>
-            <div class="aeat-flow-line"></div>
-            <div class="aeat-flow-item"><span>5</span><div><strong>Guardar resultado</strong><small>Lote, CSV, estado, errores e historial XML legible</small></div></div>
-          </div>
-
-          <div class="aeat-shot reveal reveal-delay">
-            <div class="app-window app-window-dark">
-              <div class="window-bar">
-                <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                <span class="window-title">Facturas</span>
-                <span class="window-status"><i></i> Conectado</span>
-              </div>
-              <button class="image-button" type="button" data-lightbox="assets/screenshots/02-facturas.png" aria-label="Ampliar captura de la gestión de facturas">
-                <img src="assets/screenshots/02-facturas.png" alt="Tabla de facturas con estados, filtros y acción de envío a la Agencia Tributaria" width="1875" height="1150" loading="lazy">
-              </button>
-            </div>
-            <div class="status-legend" aria-label="Estados posibles de una factura">
-              <span><i class="dot draft"></i>Borrador</span>
-              <span><i class="dot accepted"></i>Aceptada</span>
-              <span><i class="dot warning"></i>Aceptada con errores</span>
-              <span><i class="dot rejected"></i>Incorrecta</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section rectification-section" id="rectificativas">
-      <div class="container">
-        <div class="section-heading split-heading reveal">
-          <div>
-            <div class="eyebrow eyebrow-teal"><span></span> Facturas rectificativas</div>
-            <h2>Corrige una factura sin perder lo que ocurrió antes</h2>
-          </div>
-          <p>Desde el historial de una factura enviada puedes iniciar la rectificación, indicar el motivo, revisar la factura original y enviar el nuevo registro a la Agencia Tributaria.</p>
-        </div>
-
-        <div class="rectification-grid">
-          <div class="rectification-visual reveal">
-            <div class="app-window">
-              <div class="window-bar">
-                <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                <span class="window-title">Historial agencia tributaria</span>
-              </div>
-              <button class="image-button" type="button" data-lightbox="assets/screenshots/09-historial-agencia-tributaria.png" aria-label="Ampliar captura del historial de una factura">
-                <img src="assets/screenshots/09-historial-agencia-tributaria.png" alt="Historial de registros de una factura con la acción Emitir factura rectificativa" width="1875" height="1150" loading="lazy">
-              </button>
-            </div>
-          </div>
-
-          <div class="rectification-copy reveal reveal-delay">
-            <span class="card-kicker">Un registro nuevo y relacionado</span>
-            <h3>La factura original permanece intacta</h3>
-            <p>Factinxela crea un borrador rectificativo vinculado a la factura original. Así puedes consultar qué se envió antes y qué se está corrigiendo ahora.</p>
-            <ul class="check-list compact-check-list">
-              <li><span>✓</span><div><strong>Motivo guiado</strong><small>Eliges la causa y la aplicación determina el tipo de factura rectificativa.</small></div></li>
-              <li><span>✓</span><div><strong>Serie independiente</strong><small>Las rectificativas usan su propia serie y mantienen una numeración consecutiva separada.</small></div></li>
-              <li><span>✓</span><div><strong>Comparación con la original</strong><small>El editor muestra a la derecha los datos fiscales que se enviaron anteriormente.</small></div></li>
-              <li><span>✓</span><div><strong>Envío a la Agencia Tributaria</strong><small>La rectificativa se valida, numera, encadena y remite como un nuevo registro.</small></div></li>
-            </ul>
-          </div>
-        </div>
-
       </div>
     </section>
 
@@ -419,9 +418,8 @@
               <ul>
                 <li>Alta manual o importación desde cobros de Bizum y transferencias</li>
                 <li>Identificación del cliente mediante el alias presente en el movimiento bancario</li>
-                <li>Agrupación de cobros y fecha de expedición común</li>
+                <li>Preparación de facturas recapitulativas cuando proceda, con fechas de operación, cobro y expedición diferenciadas</li>
                 <li>Cálculo de base, IVA, IRPF y total según plantilla</li>
-                <li>Estados visibles: Borrador, Aceptada, Aceptada con errores e Incorrecta</li>
                 <li>Eliminación limitada a borradores y cierre tras el envío</li>
                 <li>Columnas visibles configurables y reordenables</li>
               </ul>
@@ -440,96 +438,46 @@
             </div>
           </article>
 
-          <article class="detail-group reveal">
-            <div class="detail-number">04</div>
-            <div>
-              <h3>Envío y seguimiento en la Agencia Tributaria</h3>
-              <ul>
-                <li>Revisa y valida tus facturas antes de enviarlas</li>
-                <li>La aplicación detecta datos incompletos o incoherentes</li>
-                <li>Envía con tu certificado digital desde Windows</li>
-                <li>Consulta si cada factura ha sido aceptada o necesita revisión</li>
-                <li>Guarda un historial de cada envío y de la respuesta recibida</li>
-                <li>Historial inmutable de altas, subsanaciones, anulaciones y reintentos</li>
-                <li>Facturas rectificativas vinculadas a la original y con serie independiente</li>
-              </ul>
-            </div>
-          </article>
         </div>
       </div>
     </section>
 
-    <section class="section pricing-section" id="precios">
-      <div class="container">
+    <section class="section faq-section" id="preguntas">
+      <div class="container faq-container">
         <div class="section-heading centered reveal">
-          <div class="eyebrow eyebrow-teal"><span></span> Precios</div>
-          <h2>Una licencia que crece contigo</h2>
-          <p>La aplicación se compra por licencias y el precio depende del número de profesionales emisores que vayan a emitir facturas desde Factinxela.</p>
+          <div class="eyebrow eyebrow-teal"><span></span> Dudas frecuentes</div>
+          <h2>Antes de empezar</h2>
+          <p>Respuestas claras sobre cómo encaja Factinxela en tu forma de facturar.</p>
         </div>
-
-        <div class="pricing-grid">
-          <article class="pricing-card pricing-card-main reveal">
-            <div class="pricing-card-top">
-              <span class="card-kicker">Licencia inicial</span>
-              <span class="pricing-label">Pago único</span>
-            </div>
-            <div class="pricing-amount">
-              <strong>395 €</strong>
-              <span>para un profesional emisor</span>
-            </div>
-            <p>Incluye un profesional emisor vinculado a una misma entidad fiscal o NIF.</p>
-            <div class="pricing-add-on">
-              <strong>+100 €</strong>
-              <span>por cada profesional emisor adicional</span>
-            </div>
-            <ul class="pricing-list">
-              <li><span aria-hidden="true">✓</span><span>Dos años de soporte y actualizaciones incluidos</span></li>
-              <li><span aria-hidden="true">✓</span><span>Sin cuota mensual obligatoria</span></li>
-            </ul>
-          </article>
-
-          <article class="pricing-card pricing-card-renewal reveal reveal-delay">
-            <div class="pricing-card-top">
-              <span class="card-kicker">Renovación bienal</span>
-              <span class="pricing-label">Desde el tercer año</span>
-            </div>
-            <div class="pricing-amount">
-              <strong>150 €</strong>
-              <span>cada 2 años para un emisor</span>
-            </div>
-            <p>Renueva a partir del tercer año para seguir accediendo a nuevas actualizaciones.</p>
-            <div class="pricing-add-on">
-              <strong>+50 €</strong>
-              <span>por cada profesional emisor adicional</span>
-            </div>
-            <ul class="pricing-list">
-              <li><span aria-hidden="true">✓</span><span>Acceso a nuevas actualizaciones</span></li>
-              <li><span aria-hidden="true">✓</span><span>Precio progresivo según el número de profesionales emisores</span></li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="pricing-message reveal">
-          <span>En resumen</span>
-          <strong>395 € para un profesional · 100 € por cada profesional adicional</strong>
-        </div>
-      </div>
-    </section>
-
-    <section class="section privacy-section">
-      <div class="container privacy-card reveal">
-        <div class="privacy-icon" aria-hidden="true">
-          <svg viewBox="0 0 32 32"><path d="M16 29s11-5.5 11-14V6L16 2 5 6v9c0 8.5 11 14 11 14Z"/><path d="M11.5 16.5 15 20l6-8"/></svg>
-        </div>
-        <div>
-          <div class="eyebrow eyebrow-light"><span></span> Trabajo local</div>
-          <h2>Tus datos operativos permanecen en tu equipo</h2>
-          <p>Factinxela usa una base de datos local. Cuando decides enviar, transmite el registro necesario a la Agencia Tributaria mediante el servicio configurado y deja una traza legible del intercambio.</p>
-        </div>
-        <div class="privacy-badges">
-          <span>Base de datos local</span>
-          <span>Sin Word ni LibreOffice</span>
-          <span>Certificado bajo tu control</span>
+        <div class="faq-list">
+          <details class="faq-item reveal">
+            <summary>¿Factinxela sustituye a mi gestoría?</summary>
+            <p>No. Factinxela reduce el trabajo de preparar facturas y ordenar la documentación, pero no presta asesoramiento fiscal ni presenta tus impuestos. Tu gestoría puede seguir revisando la información y ocupándose de tus obligaciones tributarias.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>¿Tengo que cambiar mi forma de cobrar?</summary>
+            <p>No. Puedes seguir cobrando por Bizum o transferencia y exportar los movimientos desde tu banco. Factinxela también permite crear facturas manualmente cuando un cobro no forme parte de la importación.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>¿Funciona con Bizum?</summary>
+            <p>Sí. Factinxela reconoce cobros de Bizum incluidos en el Excel exportado por tu banco y los relaciona con cada cliente mediante su identificador de pago. No necesita conectarse directamente a tu cuenta bancaria.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>¿Mis datos se almacenan en la nube?</summary>
+            <p>No. La base de datos de trabajo se guarda localmente en tu equipo. Solo cuando decides realizar un envío se transmite a la Agencia Tributaria la información necesaria para el registro de facturación.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>¿Puedo usar mis propias plantillas?</summary>
+            <p>Sí. Puedes importar el PDF editable que ya utilizas y asociar sus campos con los datos de clientes y facturas. Factinxela valida los campos necesarios antes de guardar la plantilla y después la utiliza para generar los PDF finales.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>¿Factinxela envía las facturas automáticamente?</summary>
+            <p>No. Prepara borradores para que revises fechas, datos e importes. Tú decides qué facturas enviar y cuándo.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>¿Qué necesito para enviar facturas a la Agencia Tributaria?</summary>
+            <p>El envío se realiza desde la aplicación en Windows usando tu certificado digital. Antes de enviar, puedes revisar los borradores y corregir los datos que falten.</p>
+          </details>
         </div>
       </div>
     </section>
@@ -586,9 +534,8 @@
       <div class="container final-cta-inner reveal">
         <div>
           <span class="cta-label">Factinxela</span>
-          <h2>La facturación puede ser rigurosa<br>sin dejar de ser sencilla.</h2>
+          <h2>Lleva tu facturación al día<br>desde el próximo cobro.</h2>
         </div>
-        <a class="button button-light" href="#inicio">Volver al principio <span aria-hidden="true">↑</span></a>
       </div>
     </section>
   </main>
@@ -601,7 +548,7 @@
         </span>
       </a>
       <p>Facturación local, clara y sencilla.</p>
-      <p class="footer-note">© <span data-year>2026</span> Factinxela · <a href="actualidad/">Actualidad</a> · <a href="privacidad/">Privacidad</a> · <a href="eliminacion-datos/">Eliminación de datos</a> · <a href="terminos/">Términos</a></p>
+      <p class="footer-note">© <span data-year>2026</span> Factinxela · <a href="privacidad/">Privacidad</a> · <a href="eliminacion-datos/">Eliminación de datos</a> · <a href="terminos/">Términos</a></p>
     </div>
   </footer>
 

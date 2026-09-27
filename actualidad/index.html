@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Noticias, explicaciones y fuentes oficiales sobre facturación, VERI*FACTU y factura electrónica para profesionales.">
   <meta name="theme-color" content="#101b33">
-  <meta property="og:title" content="Actualidad sobre facturación · Factinxela">
+  <meta property="og:title" content="Actualidad sobre facturación y VERI*FACTU · Factinxela">
   <meta property="og:description" content="Explicamos los cambios de la facturación y sus consecuencias prácticas para profesionales y pequeños negocios.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://factinxela.es/actualidad/">
@@ -36,16 +36,15 @@
     "mainEntity": {
       "@type": "ItemList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "VERI*FACTU: no se trata solo de añadir un QR", "url": "https://factinxela.es/actualidad/#verifactu-qr" },
-        { "@type": "ListItem", "position": 2, "name": "Factura electrónica B2B y VERI*FACTU no son lo mismo", "url": "https://factinxela.es/actualidad/#factura-electronica-b2b" },
-        { "@type": "ListItem", "position": 3, "name": "¿Puedo generar todas mis facturas al final del trimestre?", "url": "https://factinxela.es/actualidad/#facturacion-trimestral" }
+        { "@type": "ListItem", "position": 1, "name": "VERI*FACTU: no se trata solo de añadir un QR", "url": "https://factinxela.es/actualidad/verifactu-qr/" },
+        { "@type": "ListItem", "position": 2, "name": "Factura electrónica B2B y VERI*FACTU no son lo mismo", "url": "https://factinxela.es/actualidad/factura-electronica-b2b/" },
+        { "@type": "ListItem", "position": 3, "name": "¿Puedo generar todas mis facturas al final del trimestre?", "url": "https://factinxela.es/actualidad/facturacion-trimestral/" }
       ]
     }
   }
   </script>
   <script src="../translations.js" defer></script>
   <script src="../app.js" defer></script>
-  <script src="actualidad.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -64,13 +63,14 @@
       </button>
 
       <nav class="main-nav" id="main-nav" aria-label="Navegación principal" data-nav>
-        <a href="../#banco">Importación bancaria</a>
-        <a href="../#plantillas">Plantillas PDF</a>
-        <a href="../#aeat">Agencia tributaria</a>
-        <a href="../#precios">Precios</a>
-        <a href="../#contacto">Contacto</a>
-        <a href="./" aria-current="page">Actualidad</a>
-        <a class="button button-small button-primary nav-cta" href="/demo">Ver demo</a>
+        <a href="/#flujo">Cómo funciona</a>
+        <a href="/#funciones">Funciones</a>
+        <a href="/verifactu/">VERI*FACTU</a>
+        <a href="/precios/">Precios</a>
+        <a href="/#preguntas">FAQ</a>
+        <a href="/#contacto">Contacto</a>
+        <a href="/actualidad/" aria-current="page">Actualidad</a>
+        <a class="button button-small button-primary nav-cta" href="/demo/">Ver demo</a>
       </nav>
 
       <div class="language-switcher" data-language-switcher>
@@ -116,18 +116,18 @@
           </div>
           <span class="news-count">03</span>
         </div>
-        <nav class="news-list" aria-label="Seleccionar publicación">
-          <a class="news-list-item is-active" href="#verifactu-qr" data-article-target="verifactu-qr" aria-current="page">
+        <nav class="news-list" aria-label="Publicaciones">
+          <a class="news-list-item" href="verifactu-qr/">
             <span class="news-list-meta"><span class="news-tag">Normativa</span><time datetime="2026-09-20">20 septiembre 2026</time></span>
             <strong>VERI*FACTU: no se trata solo de añadir un QR</strong>
             <span class="news-list-arrow" aria-hidden="true">↗</span>
           </a>
-          <a class="news-list-item" href="#factura-electronica-b2b" data-article-target="factura-electronica-b2b">
+          <a class="news-list-item" href="factura-electronica-b2b/">
             <span class="news-list-meta"><span class="news-tag news-tag-blue">Actualidad</span><time datetime="2026-09-18">18 septiembre 2026</time></span>
             <strong>Factura electrónica B2B y VERI*FACTU no son lo mismo</strong>
             <span class="news-list-arrow" aria-hidden="true">↗</span>
           </a>
-          <a class="news-list-item" href="#facturacion-trimestral" data-article-target="facturacion-trimestral">
+          <a class="news-list-item" href="facturacion-trimestral/">
             <span class="news-list-meta"><span class="news-tag news-tag-coral">Gestión</span><time datetime="2026-09-16">16 septiembre 2026</time></span>
             <strong>¿Puedo generar todas mis facturas al final del trimestre?</strong>
             <span class="news-list-arrow" aria-hidden="true">↗</span>
@@ -137,84 +137,34 @@
       </aside>
 
       <div class="news-reading-column">
-        <article class="news-article is-active" id="verifactu-qr" data-article-panel="verifactu-qr" aria-labelledby="verifactu-qr-title">
-          <header class="news-article-header">
-            <div class="news-article-meta"><span class="news-tag">Normativa</span><time datetime="2026-09-20">20 septiembre 2026</time><span>·</span><span>5 min de lectura</span></div>
-            <h2 id="verifactu-qr-title">VERI*FACTU: no se trata solo de añadir un QR</h2>
-            <p class="news-article-lead">El nuevo marco de los Sistemas Informáticos de Facturación introduce requisitos de integridad, conservación, accesibilidad, trazabilidad e inalterabilidad de los registros de facturación.</p>
-          </header>
-          <div class="news-article-body">
-            <p>Esto significa que el cambio no afecta únicamente al formato visible de una factura. También afecta a cómo el software genera, conserva y relaciona los registros que hay detrás de ella.</p>
-            <p>Para entenderlo sin tecnicismos, piensa en una factura como un documento que tiene dos partes: lo que tú ves —el PDF o el papel— y un registro digital que explica quién la emite, quién la recibe, cuándo se ha emitido, qué servicio se ha prestado y cuáles son sus importes e impuestos.</p>
-            <p>En la modalidad <strong>VERI*FACTU</strong>, cuando el profesional emite la factura, el programa prepara ese registro y lo envía inmediatamente a la Agencia Tributaria. No se envía solo el QR: se remite la información necesaria para identificar la factura y comprobar que sus datos no han sido modificados.</p>
-            <div class="news-flow" aria-label="Cómo funciona una factura verificable">
-              <div class="news-flow-step">
-                <span class="news-flow-number">1</span>
-                <strong>Se emite la factura</strong>
-                <p>El programa reúne los datos del emisor, del destinatario, la fecha, el número, los impuestos y el importe.</p>
-              </div>
-              <div class="news-flow-step">
-                <span class="news-flow-number">2</span>
-                <strong>Se registra en la AEAT</strong>
-                <p>En modo VERI*FACTU, el registro se remite a la Agencia Tributaria justo después de generar la factura.</p>
-              </div>
-              <div class="news-flow-step">
-                <span class="news-flow-number">3</span>
-                <strong>Se crea una dirección de consulta</strong>
-                <p>El sistema prepara una URL de la Sede electrónica de la AEAT que permite consultar y cotejar esa factura.</p>
-              </div>
-              <div class="news-flow-step">
-                <span class="news-flow-number">4</span>
-                <strong>La URL se convierte en QR</strong>
-                <p>El QR es solo una forma cómoda de guardar esa dirección y abrirla con la cámara del móvil.</p>
-              </div>
-            </div>
-            <p>Al escanear el código, el teléfono abre la página de la Agencia Tributaria. Allí se puede comprobar si la factura está registrada y si sus datos coinciden con los que recibió oficialmente la AEAT. Si todo encaja, aparece el mensaje «Factura encontrada».</p>
-            <p class="news-highlight">Dicho de forma sencilla: el QR no demuestra nada por sí solo. Es la puerta de entrada a la consulta de la AEAT, donde se comprueba la factura que el sistema ha registrado.</p>
-            <p>Para cualquier profesional autónomo —por ejemplo, en psicología, logopedia u otras actividades de servicios— la cuestión práctica es sencilla: el software que utilice deberá estar preparado para generar estos registros y trabajar conforme a los nuevos requisitos.</p>
-            <aside class="news-source-card">
-              <span class="news-source-label">Fuente recomendada</span>
-              <p><a href="https://sede.agenciatributaria.gob.es/Sede/iva/sistemas-informaticos-facturacion-verifactu/preguntas-frecuentes.html" target="_blank" rel="noopener noreferrer">Agencia Tributaria — Preguntas frecuentes sobre Sistemas Informáticos de Facturación y VERI*FACTU <span aria-hidden="true">↗</span></a></p>
-            </aside>
-          </div>
-        </article>
+        <div class="news-index-intro">
+          <span class="news-kicker">Lecturas recomendadas</span>
+          <h2>Entender el cambio para trabajar con más tranquilidad</h2>
+          <p>Guías breves, contexto normativo y decisiones prácticas para profesionales que quieren mantener su facturación al día.</p>
+        </div>
 
-        <article class="news-article" id="factura-electronica-b2b" data-article-panel="factura-electronica-b2b" aria-labelledby="factura-electronica-b2b-title">
-          <header class="news-article-header">
-            <div class="news-article-meta"><span class="news-tag news-tag-blue">Actualidad</span><time datetime="2026-09-18">18 septiembre 2026</time><span>·</span><span>4 min de lectura</span></div>
-            <h2 id="factura-electronica-b2b-title">Factura electrónica B2B y VERI*FACTU no son lo mismo</h2>
-            <p class="news-article-lead">Ambos cambios forman parte de la digitalización de la facturación, pero responden a obligaciones diferentes.</p>
-          </header>
-          <div class="news-article-body">
-            <p>VERI*FACTU regula principalmente cómo deben comportarse los sistemas informáticos que soportan procesos de facturación.</p>
-            <p>La factura electrónica B2B regula el intercambio electrónico de facturas entre empresarios y profesionales.</p>
-            <p>El <a class="inline-link" href="https://www.boe.es/eli/es/rd/2026/03/25/238" target="_blank" rel="noopener noreferrer">Real Decreto 238/2026</a> desarrolla este segundo sistema y prevé facturas electrónicas estructuradas, interoperabilidad entre plataformas y comunicación de estados como aceptación y pago.</p>
-            <p>En determinadas operaciones, ambos marcos podrán coexistir sobre una misma factura.</p>
-            <aside class="news-source-card">
-              <span class="news-source-label">Fuente recomendada</span>
-              <p><a href="https://www.boe.es/eli/es/rd/2026/03/25/238" target="_blank" rel="noopener noreferrer">BOE — Real Decreto 238/2026 <span aria-hidden="true">↗</span></a></p>
-            </aside>
-          </div>
-        </article>
+        <div class="news-index-list">
+          <article class="news-index-card">
+            <div class="news-article-meta"><span class="news-tag">Normativa</span><time datetime="2026-09-20">20 septiembre 2026</time></div>
+            <h2><a href="verifactu-qr/">VERI*FACTU: no se trata solo de añadir un QR</a></h2>
+            <p>El QR es solo la puerta de entrada. Te explicamos qué registro hay detrás de una factura y qué papel tiene la remisión a la Agencia Tributaria.</p>
+            <div class="news-index-card-footer"><span>Por Equipo Factinxela · 5 min de lectura</span><a class="inline-link" href="verifactu-qr/">Leer artículo <span aria-hidden="true">→</span></a></div>
+          </article>
 
-        <article class="news-article" id="facturacion-trimestral" data-article-panel="facturacion-trimestral" aria-labelledby="facturacion-trimestral-title">
-          <header class="news-article-header">
-            <div class="news-article-meta"><span class="news-tag news-tag-coral">Gestión</span><time datetime="2026-09-16">16 septiembre 2026</time><span>·</span><span>3 min de lectura</span></div>
-            <h2 id="facturacion-trimestral-title">¿Puedo generar todas mis facturas al final del trimestre?</h2>
-            <p class="news-article-lead">En muchos pequeños negocios es habitual concentrar el trabajo administrativo al cierre de cada trimestre.</p>
-          </header>
-          <div class="news-article-body">
-            <p>Sin embargo, desde el punto de vista de la normativa de facturación, el mes natural tiene especial importancia.</p>
-            <p>El <a class="inline-link" href="https://www.boe.es/eli/es/rd/2012/11/30/1619" target="_blank" rel="noopener noreferrer">artículo 13 del Reglamento de facturación</a> permite agrupar en una sola factura distintas operaciones realizadas para un mismo destinatario, siempre que se hayan realizado dentro del mismo mes natural.</p>
-            <p>Por eso en Factinxela partimos de una lógica diferente:</p>
-            <p class="news-highlight">Facturación mensual automatizada.<br>Gestión trimestral sin trabajo adicional.</p>
-            <p>El objetivo es que cada mes quede correctamente procesado y que, cuando llegue el trimestre, toda la información esté ya preparada para la gestoría.</p>
-            <aside class="news-source-card">
-              <span class="news-source-label">Fuente recomendada</span>
-              <p><a href="https://www.boe.es/eli/es/rd/2012/11/30/1619" target="_blank" rel="noopener noreferrer">BOE — Reglamento por el que se regulan las obligaciones de facturación, artículo 13 <span aria-hidden="true">↗</span></a></p>
-            </aside>
-          </div>
-        </article>
+          <article class="news-index-card">
+            <div class="news-article-meta"><span class="news-tag news-tag-blue">Actualidad</span><time datetime="2026-09-18">18 septiembre 2026</time></div>
+            <h2><a href="factura-electronica-b2b/">Factura electrónica B2B y VERI*FACTU no son lo mismo</a></h2>
+            <p>Dos cambios relacionados con la digitalización de la facturación, pero con objetivos y obligaciones diferentes.</p>
+            <div class="news-index-card-footer"><span>Por Equipo Factinxela · 4 min de lectura</span><a class="inline-link" href="factura-electronica-b2b/">Leer artículo <span aria-hidden="true">→</span></a></div>
+          </article>
+
+          <article class="news-index-card">
+            <div class="news-article-meta"><span class="news-tag news-tag-coral">Gestión</span><time datetime="2026-09-16">16 septiembre 2026</time></div>
+            <h2><a href="facturacion-trimestral/">¿Puedo generar todas mis facturas al final del trimestre?</a></h2>
+            <p>Qué límites temporales conviene tener en cuenta y por qué una facturación mensual automatizada simplifica la gestión trimestral.</p>
+            <div class="news-index-card-footer"><span>Por Equipo Factinxela · 3 min de lectura</span><a class="inline-link" href="facturacion-trimestral/">Leer artículo <span aria-hidden="true">→</span></a></div>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -224,7 +174,7 @@
           <span class="cta-label">Factinxela</span>
           <h2>La normativa cambia.<br>Tu forma de trabajar puede seguir siendo sencilla.</h2>
         </div>
-        <a class="button button-light" href="../#descubrir">Conocer Factinxela <span aria-hidden="true">→</span></a>
+        <a class="button button-light" href="../demo/">Conocer Factinxela <span aria-hidden="true">→</span></a>
       </div>
     </section>
   </main>
@@ -237,7 +187,7 @@
         </span>
       </a>
       <p>Facturación local, clara y sencilla.</p>
-      <p class="footer-note">© <span data-year>2026</span> Factinxela · <a href="./">Actualidad</a> · <a href="../privacidad/">Privacidad</a> · <a href="../eliminacion-datos/">Eliminación de datos</a> · <a href="../terminos/">Términos</a></p>
+      <p class="footer-note">© <span data-year>2026</span> Factinxela · <a href="../privacidad/">Privacidad</a> · <a href="../eliminacion-datos/">Eliminación de datos</a> · <a href="../terminos/">Términos</a></p>
     </div>
   </footer>
 </body>

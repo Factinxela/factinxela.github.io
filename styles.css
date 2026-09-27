@@ -499,12 +499,33 @@ button {
   -webkit-text-fill-color: transparent;
 }
 
+.hero-claim {
+  margin: -8px 0 18px;
+  color: var(--brand-cyan-soft);
+  font-size: 17px;
+  font-weight: 750;
+  letter-spacing: -.01em;
+}
+
 .hero-lead {
   max-width: 560px;
   margin: 0;
   color: rgba(255, 255, 255, .72);
   font-size: 18px;
   line-height: 1.72;
+}
+
+.hero-benefit {
+  max-width: 560px;
+  margin: 18px 0 0;
+  color: rgba(255, 255, 255, .9);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.hero-benefit strong {
+  color: #fff;
+  font-weight: 800;
 }
 
 .hero-actions {
@@ -700,17 +721,23 @@ button {
 
 .trust-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   border: 1px solid var(--border);
   border-radius: 18px;
   box-shadow: var(--shadow-sm);
 }
 
+.psychologists-page .trust-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
 .trust-grid > div {
   display: flex;
-  min-height: 92px;
-  padding: 20px 30px;
-  align-items: center;
+  min-height: 112px;
+  padding: 22px 30px;
+  gap: 8px;
+  align-items: flex-start;
+  flex-direction: column;
   border-right: 1px solid var(--border);
 }
 
@@ -720,15 +747,14 @@ button {
 
 .trust-grid strong {
   color: var(--teal-dark);
-  font-size: 23px;
+  font-size: 22px;
   letter-spacing: -.035em;
 }
 
 .trust-grid span {
-  max-width: 100px;
-  margin-left: 11px;
+  max-width: none;
   color: var(--ink-soft);
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.35;
 }
 
@@ -791,6 +817,196 @@ button {
 
 .section-intro {
   background: var(--surface);
+}
+
+.benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.cross-links-section .benefit-grid {
+  max-width: 900px;
+  margin-inline: auto;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.psychologists-page .hero h1 {
+  font-size: clamp(42px, 4.2vw, 58px);
+}
+
+.benefit-card {
+  min-height: 230px;
+  padding: 30px;
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.benefit-number {
+  color: var(--teal-dark);
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: .12em;
+}
+
+.benefit-card h3 {
+  margin: 27px 0 10px;
+  color: var(--ink);
+  font-size: 20px;
+  line-height: 1.25;
+  letter-spacing: -.025em;
+}
+
+.benefit-card p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.audience-section {
+  background: var(--surface-soft);
+}
+
+.audience-section .section-heading {
+  max-width: 850px;
+}
+
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.audience-card {
+  min-height: 255px;
+  padding: 30px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 30px rgba(16, 27, 51, .045);
+}
+
+.audience-card-featured {
+  background: linear-gradient(145deg, #f2fffc, #fff 75%);
+  border-color: #bfe7e1;
+}
+
+.audience-kicker {
+  color: var(--teal-dark);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.audience-card h3 {
+  margin: 22px 0 12px;
+  color: var(--ink);
+  font-size: 21px;
+  line-height: 1.25;
+  letter-spacing: -.03em;
+}
+
+.audience-card p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.audience-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.trust-story-section {
+  background: var(--navy);
+  color: #fff;
+}
+
+.trust-story-card {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 56px;
+  align-items: center;
+  padding: 56px 62px;
+  background: linear-gradient(135deg, #102d45 0%, #173d59 100%);
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 22px 60px rgba(4, 17, 29, .22);
+}
+
+.trust-story-copy .eyebrow {
+  color: #9fe5d8;
+}
+
+.trust-story-copy h2 {
+  max-width: 680px;
+  margin: 22px 0 20px;
+  color: #fff;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.06;
+  letter-spacing: -.035em;
+}
+
+.trust-story-copy p {
+  max-width: 620px;
+  margin: 0;
+  color: rgba(255, 255, 255, .74);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.trust-story-quote {
+  margin: 0;
+  padding: 32px;
+  color: var(--ink);
+  background: #fff;
+  border-radius: var(--radius-md);
+  box-shadow: 0 18px 40px rgba(4, 17, 29, .18);
+}
+
+.trust-story-quote blockquote {
+  margin: 0;
+  font-size: clamp(21px, 2.2vw, 29px);
+  line-height: 1.25;
+  letter-spacing: -.02em;
+}
+
+.trust-story-quote blockquote::before { content: "“"; }
+.trust-story-quote blockquote::after { content: "”"; }
+
+.trust-story-quote figcaption {
+  margin-top: 22px;
+  color: var(--ink-soft);
+  font-size: 12px;
+  font-weight: 750;
+  line-height: 1.4;
+}
+
+.journey-cta {
+  padding: 62px 0;
+  color: #fff;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(105, 226, 215, .18), transparent 30%),
+    var(--teal-dark);
+}
+
+.journey-cta-inner {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.journey-cta h2 {
+  margin: 12px 0 0;
+  font-size: clamp(30px, 3.6vw, 42px);
+  line-height: 1.1;
+  letter-spacing: -.04em;
 }
 
 .bento-grid {
@@ -1442,6 +1658,15 @@ button {
   align-items: center;
 }
 
+.status-note {
+  max-width: 700px;
+  margin: 10px auto 0;
+  color: rgba(255, 255, 255, .56);
+  font-size: 11px;
+  line-height: 1.5;
+  text-align: center;
+}
+
 .dot {
   width: 7px;
   height: 7px;
@@ -1631,6 +1856,65 @@ button {
   background: var(--surface);
 }
 
+.faq-section {
+  background: var(--surface-soft);
+}
+
+.faq-container {
+  max-width: 900px;
+}
+
+.faq-list {
+  display: grid;
+  gap: 12px;
+}
+
+.faq-item {
+  padding: 0 24px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.faq-item summary {
+  position: relative;
+  padding: 21px 32px 21px 0;
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 750;
+  line-height: 1.45;
+  list-style: none;
+  cursor: pointer;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  position: absolute;
+  top: 50%;
+  right: 2px;
+  color: var(--teal-dark);
+  font-size: 23px;
+  font-weight: 500;
+  content: "+";
+  transform: translateY(-50%);
+}
+
+.faq-item[open] summary::after {
+  content: "−";
+}
+
+.faq-item p {
+  max-width: 720px;
+  padding: 0 32px 21px 0;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1801,6 +2085,39 @@ button {
 .pricing-message strong {
   font-size: 15px;
   text-align: right;
+}
+
+.pricing-promise {
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  padding: 15px 28px;
+  margin: 0 auto 38px;
+  gap: 13px;
+  align-items: center;
+  color: #0b4844;
+  background: linear-gradient(135deg, #e6faf4, #f0fbff);
+  border: 1px solid rgba(0, 157, 168, .18);
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.pricing-promise > span {
+  display: grid;
+  flex: 0 0 auto;
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  background: var(--teal-dark);
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 900;
+  place-items: center;
+}
+
+.pricing-promise strong {
+  font-size: clamp(23px, 3vw, 32px);
+  letter-spacing: -.035em;
 }
 
 .privacy-section {
@@ -2157,10 +2474,17 @@ button {
   .app-window-hero { transform: none; }
   .hero::after { display: none; }
   .trust-strip { padding-top: 35px; }
-  .trust-grid { grid-template-columns: 1fr 1fr; }
-  .trust-grid > div:nth-child(2) { border-right: 0; }
-  .trust-grid > div:nth-child(-n+2) { border-bottom: 1px solid var(--border); }
+  .trust-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .psychologists-page .trust-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .section { padding: 90px 0; }
+  .benefit-grid { grid-template-columns: 1fr 1fr; }
+  .benefit-card:last-child { grid-column: 1 / -1; }
+  .cross-links-section .benefit-grid { grid-template-columns: 1fr 1fr; }
+  .cross-links-section .benefit-card:last-child { grid-column: auto; }
+  .audience-grid { grid-template-columns: 1fr 1fr; }
+  .audience-card:last-child { grid-column: 1 / -1; }
+  .trust-story-card { grid-template-columns: 1fr; gap: 30px; padding: 45px; }
+  .journey-cta-inner { align-items: flex-start; flex-direction: column; }
   .split-heading { grid-template-columns: 1fr; gap: 15px; }
   .workflow-grid { grid-template-columns: 1fr 1fr; }
   .workflow-step:nth-child(2) { border-right: 0; }
@@ -2207,9 +2531,24 @@ button {
   .hero-points { gap: 10px; align-items: flex-start; flex-direction: column; }
   .floating-card { display: none; }
   .trust-grid { grid-template-columns: 1fr; }
+  .psychologists-page .trust-grid { grid-template-columns: 1fr; }
   .trust-grid > div { min-height: 72px; border-right: 0; border-bottom: 1px solid var(--border); }
   .trust-grid > div:last-child { border-bottom: 0; }
   .section { padding: 75px 0; }
+  .benefit-grid { grid-template-columns: 1fr; }
+  .cross-links-section .benefit-grid { grid-template-columns: 1fr; }
+  .benefit-card:last-child { grid-column: auto; }
+  .audience-grid { grid-template-columns: 1fr; }
+  .audience-card { min-height: auto; }
+  .audience-card:last-child { grid-column: auto; }
+  .audience-cta .button { width: 100%; }
+  .trust-story-card { padding: 32px 25px; }
+  .trust-story-quote { padding: 24px; }
+  .trust-story-quote blockquote { font-size: 22px; }
+  .benefit-card { min-height: auto; }
+  .benefit-card h3 { margin-top: 18px; }
+  .journey-cta { padding: 54px 0; }
+  .journey-cta h2 { font-size: 32px; }
   .section-heading { margin-bottom: 38px; }
   .section-heading h2, .template-copy h2, .details-sticky h2, .final-cta h2 { font-size: 35px; }
   .bento-grid { grid-template-columns: 1fr; }

@@ -139,6 +139,107 @@
   padding-bottom: 106px;
 }
 
+.news-index-intro {
+  margin-bottom: 22px;
+  padding: 4px 4px 0;
+}
+
+.news-index-intro h2 {
+  max-width: 650px;
+  margin: 8px 0 11px;
+  color: var(--navy);
+  font-size: clamp(28px, 3.5vw, 42px);
+  letter-spacing: -.045em;
+  line-height: 1.08;
+}
+
+.news-index-intro p {
+  max-width: 680px;
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+.news-index-list {
+  display: grid;
+  gap: 18px;
+}
+
+.news-index-card {
+  padding: 28px 30px 27px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.news-index-card h2 {
+  max-width: 700px;
+  margin: 14px 0 13px;
+  color: var(--navy);
+  font-size: clamp(25px, 3vw, 35px);
+  letter-spacing: -.045em;
+  line-height: 1.08;
+}
+
+.news-index-card h2 a {
+  color: inherit;
+}
+
+.news-index-card h2 a:hover,
+.news-index-card h2 a:focus-visible {
+  color: var(--teal-dark);
+}
+
+.news-index-card > p {
+  max-width: 700px;
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+.news-index-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 22px;
+  padding-top: 17px;
+  border-top: 1px solid var(--border);
+}
+
+.news-index-card-footer > span {
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+.news-index-card-footer .inline-link {
+  flex: 0 0 auto;
+  font-weight: 750;
+}
+
+.news-article-layout {
+  max-width: 1000px;
+  padding-top: 42px;
+  padding-bottom: 106px;
+}
+
+.news-article-breadcrumb {
+  margin-bottom: 15px;
+  color: rgba(255, 255, 255, .68);
+  font-size: 12px;
+}
+
+.news-article-breadcrumb a {
+  color: #8ae1d7;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.news-article-standalone {
+  display: block;
+}
+
 .news-sidebar {
   position: sticky;
   top: 96px;
@@ -299,6 +400,7 @@ html.js .news-article:not(.is-active) {
   margin-bottom: 20px;
 }
 
+.news-article-header h1,
 .news-article-header h2 {
   max-width: 790px;
   margin: 0 0 21px;
@@ -318,6 +420,87 @@ html.js .news-article:not(.is-active) {
 .news-article-body {
   max-width: 790px;
   padding: 35px clamp(26px, 6vw, 72px) 55px;
+}
+
+.news-product-link {
+  display: grid;
+  margin-top: 39px;
+  padding: 22px 24px;
+  gap: 7px;
+  background: var(--navy);
+  border-radius: 15px;
+}
+
+.news-product-link strong {
+  color: #fff;
+  font-size: 16px;
+}
+
+.news-product-link p {
+  margin: 0;
+  color: rgba(255, 255, 255, .72);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.news-product-link a {
+  width: fit-content;
+  margin-top: 4px;
+  color: #8ae1d7;
+  font-size: 14px;
+  font-weight: 750;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.news-related {
+  margin-top: 45px;
+  padding-top: 27px;
+  border-top: 1px solid var(--border);
+}
+
+.news-related h2 {
+  margin: 0 0 17px;
+  color: var(--navy);
+  font-size: 22px;
+  letter-spacing: -.03em;
+}
+
+.news-related-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.news-related-list a {
+  display: grid;
+  min-height: 82px;
+  padding: 15px 16px;
+  align-content: space-between;
+  color: var(--navy);
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  font-size: 14px;
+  font-weight: 750;
+  line-height: 1.35;
+  transition: border-color .2s ease, transform .2s ease;
+}
+
+.news-related-list a:hover,
+.news-related-list a:focus-visible {
+  border-color: rgba(13, 156, 145, .55);
+  transform: translateY(-2px);
+}
+
+.news-related-list span {
+  display: block;
+  margin-top: 9px;
+  color: var(--teal-dark);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1;
+  text-align: right;
 }
 
 .news-article-body p {
@@ -504,10 +687,20 @@ html.js .news-article:not(.is-active) {
     grid-template-columns: 1fr;
   }
 
+  .news-index-card {
+    padding: 24px 22px;
+  }
+
+  .news-index-card-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
   .news-article-header {
     padding-top: 31px;
   }
 
+  .news-article-header h1,
   .news-article-header h2 {
     font-size: 34px;
   }
@@ -522,6 +715,10 @@ html.js .news-article:not(.is-active) {
   }
 
   .news-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .news-related-list {
     grid-template-columns: 1fr;
   }
 }
