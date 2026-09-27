@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Programa de facturación para psicólogos autónomos. Convierte cobros identificados de Bizum y transferencias en borradores y prepara la documentación para tu gestoría.">
+  <meta name="description" content="Facturación automática para psicólogos: convierte cobros de Bizum y transferencia en facturas preparadas para revisar y deja el trimestre listo para tu gestoría.">
   <meta name="theme-color" content="#101b33">
   <meta property="og:title" content="Programa de facturación para psicólogos | Factinxela">
-  <meta property="og:description" content="Organiza los cobros de tus sesiones, prepara facturas para revisar y lleva la documentación del trimestre al día.">
+  <meta property="og:description" content="Convierte tus cobros por Bizum y transferencia en facturas preparadas para revisar y llega al trimestre con la documentación lista para tu gestoría.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://factinxela.es/facturacion-psicologos/">
   <meta property="og:image" content="https://factinxela.es/assets/screenshots/01-panel-principal.png">
@@ -24,6 +24,8 @@
   }
   </script>
   <script src="../translations.js" defer></script>
+  <script src="../analytics-config.js" defer></script>
+  <script src="../analytics.js" defer></script>
   <script src="../app.js" defer></script>
 </head>
 <body class="psychologists-page">
@@ -55,10 +57,10 @@
       <div class="container hero-grid">
         <div class="hero-copy reveal">
           <div class="eyebrow"><span></span> Facturación para psicólogos</div>
-          <h1>Programa de facturación<br><em>para psicólogos</em></h1>
-          <p class="hero-lead">Organiza los cobros de tus sesiones, prepara facturas para revisar y lleva al día la documentación que compartes con tu gestoría.</p>
+          <h1>Facturación automática<br><em>para psicólogos</em></h1>
+          <p class="hero-lead">Convierte tus cobros por Bizum y transferencia en facturas preparadas para revisar y llega al trimestre con toda la documentación lista para tu gestoría.</p>
           <p class="hero-benefit"><strong>Menos tareas administrativas entre sesiones.</strong> Tú mantienes el control antes de cada envío.</p>
-          <div class="hero-actions"><a class="button button-ghost" href="#flujo">Cómo funciona</a></div>
+          <div class="hero-actions"><a class="button button-primary" href="/demo">Ver demo</a><a class="button button-ghost" href="/#contacto">Solicitar información</a></div>
         </div>
         <div class="hero-visual reveal reveal-delay">
           <div class="app-window app-window-hero"><div class="window-bar"><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title">Factinxela</span><span class="window-status"><i></i> Aplicación lista</span></div><button class="image-button" type="button" data-lightbox="../assets/screenshots/01-panel-principal.png" aria-label="Ampliar captura del panel principal"><img src="../assets/screenshots/01-panel-principal.png" alt="Panel principal de Factinxela con emisores, plantillas, clientes y facturas" width="1875" height="1150"></button></div>
@@ -75,8 +77,51 @@
 
     <section class="section bank-section" id="cobros"><div class="container bank-grid"><div class="bank-copy reveal"><div class="eyebrow eyebrow-teal"><span></span> Cobros de sesiones</div><h2>De cada pago identificado a un borrador</h2><p class="large-copy">Factinxela importa una hoja Excel con movimientos bancarios y puede reconocer al paciente cuando el concepto del pago incluye el identificador que guardaste en su ficha.</p><div class="bank-callout"><strong>El concepto bancario debe identificar al paciente</strong><p>Usa una referencia reconocible —por ejemplo, sus iniciales o un alias acordado— tanto en el Bizum como en la transferencia.</p></div><a class="text-link" href="/#funciones">Ver todas las funciones <span aria-hidden="true">→</span></a></div><div class="bank-visual reveal reveal-delay"><div class="app-window bank-window"><div class="window-bar"><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title">Importar movimientos bancarios</span></div><button class="image-button" type="button" data-lightbox="../assets/screenshots/08-importacion-banco.png" aria-label="Ampliar captura de la importación bancaria"><img src="../assets/screenshots/08-importacion-banco.png" alt="Importación de cobros de Bizum y transferencias desde Excel" width="1075" height="900" loading="lazy"></button></div></div></div></section>
 
-    <section class="section faq-section" id="preguntas"><div class="container faq-container"><div class="section-heading centered reveal"><div class="eyebrow eyebrow-teal"><span></span> Dudas frecuentes</div><h2>Facturación para psicólogos: preguntas habituales</h2></div><div class="faq-list"><details class="faq-item reveal"><summary>¿Factinxela crea y envía automáticamente las facturas de mis sesiones?</summary><p>Prepara borradores a partir de cobros identificados. Tú revisas fechas, datos e importes y decides qué facturas enviar.</p></details><details class="faq-item reveal"><summary>¿Puede reconocer pagos de varios pacientes?</summary><p>Sí. Guarda un identificador de pago distinto en la ficha de cada paciente. El concepto del movimiento importado debe incluir esa referencia para que Factinxela pueda asociarlo.</p></details><details class="faq-item reveal"><summary>¿Puedo compartir las facturas con mi gestoría?</summary><p>Puedes generar las facturas en PDF y exportar listados a Excel para organizar y compartir la documentación del trimestre.</p></details><details class="faq-item reveal"><summary>¿Dónde se guardan los datos de mi consulta?</summary><p>La base de datos de trabajo es local y permanece en tu equipo. Al enviar una factura, se transmite a la Agencia Tributaria la información necesaria para ese registro.</p></details></div></div></section>
-    <section class="final-cta"><div class="container final-cta-inner reveal"><div><span class="cta-label">Factinxela para psicólogos</span><h2>Dedica menos tiempo a preparar facturas.</h2></div></div></section>
+    <section class="section psychologist-solution-section">
+      <div class="container">
+        <div class="section-heading centered reveal">
+          <div class="eyebrow eyebrow-teal"><span></span> Cada mes, en orden</div>
+          <h2>El cierre mensual evita reconstruir el trimestre</h2>
+          <p>Procesa los cobros cuando te venga bien, prepara las facturas del período y conserva la documentación lista para compartirla con tu gestoría.</p>
+        </div>
+        <div class="benefit-grid">
+          <article class="benefit-card reveal"><span class="benefit-number">01</span><h3>Cierre mensual</h3><p>Convierte los cobros identificados en borradores una vez al mes y evita acumular trabajo administrativo.</p></article>
+          <article class="benefit-card reveal"><span class="benefit-number">02</span><h3>Recapitulativas cuando proceda</h3><p>Prepara facturas recapitulativas respetando los límites temporales aplicables y manteniendo separadas las fechas relevantes.</p></article>
+          <article class="benefit-card reveal"><span class="benefit-number">03</span><h3>Trimestre preparado</h3><p>Genera los PDF y listados que necesitas para revisar y compartir la información con tu gestoría.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section psychologist-control-section">
+      <div class="container psychologist-control-grid">
+        <div class="psychologist-control-copy reveal">
+          <div class="eyebrow eyebrow-teal"><span></span> Privacidad y control</div>
+          <h2>La información de tu consulta permanece bajo tu control</h2>
+          <p>Factinxela trabaja con una arquitectura local-first: los datos operativos se guardan en tu equipo y solo se transmite la información necesaria cuando decides realizar un envío.</p>
+          <a class="text-link" href="/privacidad/">Cómo funciona la privacidad <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="psychologist-control-card reveal reveal-delay">
+          <strong>Base de datos local</strong>
+          <span>Sin centralizar innecesariamente la información operativa de tu consulta.</span>
+          <strong>Revisión antes del envío</strong>
+          <span>Tú compruebas los borradores y decides qué registros remitir.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section psychologist-price-section">
+      <div class="container psychologist-price-card reveal">
+        <div>
+          <div class="eyebrow eyebrow-teal"><span></span> Precio claro</div>
+          <h2>Desde 395 € y sin cuotas mensuales</h2>
+          <p>Incluye dos años de soporte y actualizaciones para un profesional emisor. Después puedes renovar por períodos de dos años: 150 € para un profesional y 50 € por cada emisor adicional.</p>
+        </div>
+        <div class="psychologist-price-actions"><a class="button button-primary" href="/precios/">Ver precios</a><a class="text-link" href="/verifactu/">Conoce VERI*FACTU <span aria-hidden="true">→</span></a></div>
+      </div>
+    </section>
+
+    <section class="section faq-section" id="preguntas"><div class="container faq-container"><div class="section-heading centered reveal"><div class="eyebrow eyebrow-teal"><span></span> Dudas frecuentes</div><h2>Facturación para psicólogos: preguntas habituales</h2></div><div class="faq-list"><details class="faq-item reveal"><summary>¿Factinxela sustituye a mi gestoría?</summary><p>No. Factinxela automatiza y organiza la facturación. La fiscalidad y contabilidad siguen siendo responsabilidad del profesional y, en su caso, de su asesoría.</p></details><details class="faq-item reveal"><summary>¿Funciona con Bizum?</summary><p>Sí. Reconoce cobros de Bizum incluidos en el Excel exportado por tu banco y los relaciona con cada paciente mediante su identificador de pago.</p></details><details class="faq-item reveal"><summary>¿Puedo usar mis propias plantillas?</summary><p>Sí. Puedes importar el PDF editable que ya utilizas y asociar sus campos con los datos de pacientes y facturas para generar los PDF finales.</p></details><details class="faq-item reveal"><summary>¿Dónde se guardan los datos?</summary><p>La base de datos de trabajo es local y permanece en tu equipo. Solo se transmite la información necesaria cuando decides realizar un envío.</p></details><details class="faq-item reveal"><summary>¿Tiene cuota mensual?</summary><p>No. La licencia inicial es un pago único e incluye dos años de soporte y actualizaciones.</p></details><details class="faq-item reveal"><summary>¿Cómo funciona el cierre mensual?</summary><p>Una vez al mes puedes importar los movimientos del banco, convertir los cobros identificados en borradores, revisarlos y generar la documentación del período.</p></details><details class="faq-item reveal"><summary>¿Qué ocurre al final del trimestre?</summary><p>Si has ido procesando los cobros, llegas con las facturas y listados preparados para revisar y compartir con tu gestoría, sin reconstruir todo deprisa.</p></details></div></div></section>
+    <section class="final-cta"><div class="container final-cta-inner reveal"><div><span class="cta-label">Factinxela para psicólogos</span><h2>Dedica menos tiempo a preparar facturas.</h2></div><div class="hero-actions"><a class="button button-primary" href="/demo">Ver demo</a><a class="button button-ghost" href="/#contacto">Solicitar información</a></div></div></section>
   </main>
   <footer class="site-footer">
     <div class="container footer-inner">

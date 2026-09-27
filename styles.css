@@ -835,6 +835,104 @@ button {
   font-size: clamp(42px, 4.2vw, 58px);
 }
 
+.psychologist-solution-section {
+  background: var(--surface);
+}
+
+.psychologist-control-section {
+  background: var(--surface-soft);
+}
+
+.psychologist-control-grid {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.psychologist-control-copy h2,
+.psychologist-price-card h2 {
+  margin: 15px 0 18px;
+  color: var(--ink);
+  font-size: clamp(34px, 4vw, 50px);
+  line-height: 1.08;
+  letter-spacing: -.045em;
+}
+
+.psychologist-control-copy p,
+.psychologist-price-card p {
+  max-width: 650px;
+  color: var(--ink-soft);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.psychologist-control-card {
+  display: grid;
+  gap: 10px;
+  padding: 36px;
+  background: linear-gradient(145deg, #f2fffc, #fff 75%);
+  border: 1px solid #bfe7e1;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.psychologist-control-card strong {
+  margin-top: 10px;
+  color: var(--navy);
+  font-size: 19px;
+}
+
+.psychologist-control-card strong:first-child {
+  margin-top: 0;
+}
+
+.psychologist-control-card span {
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.psychologist-price-section {
+  background: var(--surface);
+}
+
+.psychologist-price-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 46px;
+  background: var(--navy);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+.psychologist-price-card h2,
+.psychologist-price-card .eyebrow {
+  color: #fff;
+}
+
+.psychologist-price-card .eyebrow span {
+  background: var(--teal);
+}
+
+.psychologist-price-card p {
+  color: rgba(255, 255, 255, .74);
+}
+
+.psychologist-price-actions {
+  display: flex;
+  min-width: 180px;
+  gap: 18px;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.psychologist-price-actions .text-link {
+  color: #fff;
+}
+
 .benefit-card {
   min-height: 230px;
   padding: 30px;
@@ -875,7 +973,7 @@ button {
 
 .audience-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 18px;
 }
 
@@ -918,6 +1016,9 @@ button {
 
 .audience-cta {
   display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
   margin-top: 30px;
 }
@@ -2482,7 +2583,7 @@ button {
   .cross-links-section .benefit-grid { grid-template-columns: 1fr 1fr; }
   .cross-links-section .benefit-card:last-child { grid-column: auto; }
   .audience-grid { grid-template-columns: 1fr 1fr; }
-  .audience-card:last-child { grid-column: 1 / -1; }
+  .audience-card:last-child { grid-column: auto; }
   .trust-story-card { grid-template-columns: 1fr; gap: 30px; padding: 45px; }
   .journey-cta-inner { align-items: flex-start; flex-direction: column; }
   .split-heading { grid-template-columns: 1fr; gap: 15px; }
@@ -2497,6 +2598,9 @@ button {
   .bank-grid { grid-template-columns: 1fr; gap: 35px; }
   .bank-copy { max-width: 720px; }
   .bank-visual { width: min(100%, 780px); margin-inline: auto; }
+  .psychologist-control-grid { grid-template-columns: 1fr; gap: 35px; }
+  .psychologist-price-card { align-items: flex-start; flex-direction: column; }
+  .psychologist-price-actions { flex-direction: row; align-items: center; }
   .template-grid { grid-template-columns: 1fr; gap: 30px; }
   .template-copy { max-width: 690px; }
   .template-visual { width: min(100%, 760px); margin-inline: auto; }
@@ -2549,6 +2653,9 @@ button {
   .benefit-card h3 { margin-top: 18px; }
   .journey-cta { padding: 54px 0; }
   .journey-cta h2 { font-size: 32px; }
+  .psychologist-control-card { padding: 28px 24px; }
+  .psychologist-price-card { padding: 32px 25px; }
+  .psychologist-price-actions { align-items: flex-start; flex-direction: column; }
   .section-heading { margin-bottom: 38px; }
   .section-heading h2, .template-copy h2, .details-sticky h2, .final-cta h2 { font-size: 35px; }
   .bento-grid { grid-template-columns: 1fr; }

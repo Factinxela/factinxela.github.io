@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Software de facturación automática para autónomos y profesionales. Factinxela identifica tus cobros, prepara tus facturas y deja cada trimestre listo para tu gestoría.">
+  <meta name="description" content="Factinxela automatiza la facturación de autónomos y profesionales a partir de sus cobros. Cierre mensual, gestión trimestral y sin cuotas mensuales.">
   <meta name="theme-color" content="#101b33">
   <meta property="og:title" content="Factinxela | Facturación automática para autónomos y profesionales">
-  <meta property="og:description" content="Factinxela identifica tus cobros, prepara tus facturas y deja cada trimestre listo para tu gestoría.">
+  <meta property="og:description" content="Factinxela automatiza la facturación de autónomos y profesionales a partir de sus cobros. Cierre mensual, gestión trimestral y sin cuotas mensuales.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://factinxela.es/">
   <meta property="og:image" content="assets/screenshots/01-panel-principal.png">
@@ -23,7 +23,26 @@
     "logo": "https://factinxela.es/assets/Factinxela_dark.png"
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Factinxela",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Windows",
+    "description": "Software de facturación automática para autónomos y profesionales a partir de sus cobros.",
+    "url": "https://factinxela.es/",
+    "offers": {
+      "@type": "Offer",
+      "price": "395",
+      "priceCurrency": "EUR",
+      "description": "Licencia inicial para un profesional emisor"
+    }
+  }
+  </script>
   <script src="translations.js" defer></script>
+  <script src="analytics-config.js" defer></script>
+  <script src="analytics.js" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body>
@@ -81,7 +100,8 @@
           <p class="hero-lead">Factinxela identifica tus cobros, prepara tus facturas y deja cada trimestre listo para tu gestoría.</p>
           <p class="hero-benefit"><strong>Facturación mensual automatizada.</strong> Gestión trimestral sin trabajo adicional.</p>
           <div class="hero-actions">
-            <a class="button button-ghost" href="#flujo">Quiero saber más</a>
+            <a class="button button-primary" href="/demo">Ver demo</a>
+            <a class="button button-ghost" href="#contacto">Quiero saber más</a>
           </div>
         </div>
 
@@ -111,8 +131,8 @@
     <section class="trust-strip" aria-label="Los tres pilares de Factinxela">
       <div class="container trust-grid">
         <div><strong>Automatiza</strong><span>Del cobro a la factura.</span></div>
-        <div><strong>Simplifica</strong><span>Cada trimestre preparado para tu gestoría.</span></div>
-        <div><strong>Mantén el control</strong><span>Tus datos operativos permanecen en tu equipo</span></div>
+        <div><strong>Simplifica</strong><span>Cada mes se procesa y cada trimestre queda preparado para tu gestoría.</span></div>
+        <div><strong>Mantén el control</strong><span>Tus datos operativos permanecen bajo tu control y no se centralizan innecesariamente.</span></div>
       </div>
     </section>
 
@@ -147,7 +167,7 @@
       <div class="container">
         <div class="section-heading centered reveal">
           <div class="eyebrow eyebrow-teal"><span></span> ¿Te suena?</div>
-          <h2>Hecho para profesionales que facturan mucho y no quieren perder tiempo haciéndolo</h2>
+          <h2>Pensado para profesionales que facturan mucho y no quieren perder tiempo haciéndolo</h2>
           <p>Factinxela ayuda a llevar al día los cobros y las facturas de negocios de servicios, con revisión antes de cada envío.</p>
         </div>
         <div class="audience-grid">
@@ -166,9 +186,15 @@
             <h3>Consultores y profesionales independientes</h3>
             <p>Prepara facturas para trabajos puntuales o recurrentes, manualmente o desde cobros identificados del banco.</p>
           </article>
+          <article class="audience-card reveal">
+            <span class="audience-kicker">Varios emisores</span>
+            <h3>Pequeños despachos y centros</h3>
+            <p>Gestiona varios profesionales emisores bajo una misma estructura y centraliza la facturación con menos trabajo repetido.</p>
+          </article>
         </div>
         <div class="audience-cta reveal">
-          <a class="button button-primary" href="/facturacion-psicologos/">Ver Factinxela para psicólogos <span aria-hidden="true">→</span></a>
+          <a class="button button-primary" href="#flujo">Ver cómo funciona Factinxela <span aria-hidden="true">→</span></a>
+          <a class="text-link" href="/facturacion-psicologos/">Ver Factinxela para psicólogos <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </section>
@@ -477,6 +503,22 @@
           <details class="faq-item reveal">
             <summary>¿Qué necesito para enviar facturas a la Agencia Tributaria?</summary>
             <p>El envío se realiza desde la aplicación en Windows usando tu certificado digital. Antes de enviar, puedes revisar los borradores y corregir los datos que falten.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>¿Tiene cuota mensual?</summary>
+            <p>No. La licencia se adquiere mediante un pago inicial e incluye dos años de soporte y actualizaciones.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>¿Qué ocurre después de los dos primeros años?</summary>
+            <p>El soporte y las actualizaciones pueden renovarse por períodos de dos años según el número de profesionales emisores.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>¿Puedo seguir usando Factinxela si no renuevo?</summary>
+            <p>La licencia adquirida no caduca. Sin renovación no se incluyen soporte ni futuras actualizaciones.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>¿Factinxela es VERI*FACTU?</summary>
+            <p>Factinxela es un sistema de facturación diseñado para adaptarse a los requisitos técnicos aplicables y trabajar con registros VERI*FACTU. No sustituye la revisión de tus obligaciones fiscales.</p>
           </details>
         </div>
       </div>
